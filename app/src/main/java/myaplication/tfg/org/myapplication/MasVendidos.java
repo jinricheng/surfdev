@@ -54,7 +54,7 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
     private int count;
     private int allitems =0;
     private boolean isPageDiv;
-    private static int number = 1;
+
     private List<ProductConfigurable> listConfigurable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,8 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
         count =0;
         listAllItems = new ArrayList<>();
         listConfigurable = new ArrayList<>();
+        sessionId = "";
+
         new DownLoad().execute();
     }
 
@@ -100,6 +102,8 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
            String URL = "http://gonegocio.es/index.php/api/v2_soap/";
            List<ProductConfigurable> productConfigurables = new ArrayList<>();
            private int addItemsNumber = 4;
+
+
            @Override
            protected void onPreExecute() {
                super.onPreExecute();
@@ -118,7 +122,9 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
            @Override
            protected String doInBackground(String... params) {
                try {
-                   setupSessionLogin();
+
+                   if(sessionId.equals("")){
+                   setupSessionLogin();}
  /*               StringArraySerializer stringArray = new StringArraySerializer();
                   stringArray.add("7");
                   stringArray.add("8");
@@ -126,7 +132,9 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
                   stringArrayProperty.setName("products");
                   stringArrayProperty.setValue(stringArray);
                   stringArrayProperty.setType(stringArray.getClass());
-*/                 if(listAllItems.size()==0){
+
+*/                Log.d("list all items size",Integer.toString(listAllItems.size()));
+                   if(listAllItems.size()==0){
                    getAllListItem();}
                    createPartOfItems();
 
@@ -168,9 +176,7 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
                }
                else{
                    startWithSimple();
-
                }
-
            }
 
       private void startWithSimple() throws IOException, XmlPullParserException {
@@ -178,8 +184,6 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
               SoapObject child = (SoapObject) r.getProperty(i);
               listAllItems.add(child);
           }
-
-
       }
 
         private void createPartOfItems() throws IOException, XmlPullParserException {
@@ -265,43 +269,7 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
              p.setImage(imageUrl);
             return p;}
 
-
-         private String getAdditionalAttributeValue() throws IOException, XmlPullParserException {
-            SoapObject attributes = new SoapObject(NAMESPACE,"attributes");
-            SoapObject additional = new SoapObject(NAMESPACE,"additional_attributes");
-            additional.addProperty("attribute","size");
-            SoapObject requestAtributtes = new SoapObject(NAMESPACE,"catalogProductRequestAttributes");
-            requestAtributtes.addProperty("attributes",attributes);
-            requestAtributtes.addProperty("additional_attributes",additional);
-            request = new SoapObject(NAMESPACE, "catalogProductInfo");
-            request.addProperty("sessionId", sessionId);
-            request.addProperty("productId", "8");
-            request.addProperty("attributes",requestAtributtes);
-            env.setOutputSoapObject(request);
-            androidHttpTransport.call("", env);
-            r = (SoapObject) env.getResponse();
-            SoapObject result = (SoapObject)r.getProperty(r.getPropertyCount()-1);
-            result= (SoapObject)result.getProperty("item");
-            String value = (String)result.getProperty("value");
-
-            return value;
-         }
-
-
       /*get the attribute size with the respect label and value, save them for future use*/
-      private void getAllSize() throws IOException, XmlPullParserException {
-          request = new SoapObject(NAMESPACE, "catalogProductAttributeInfo");
-          request.addProperty("sessionId", sessionId);
-          request.addProperty("attribute","size");
-          env.setOutputSoapObject(request);
-          androidHttpTransport.call("", env);
-          r = (SoapObject) env.getResponse();
-          SoapObject sizeOptions = (SoapObject)r.getProperty("options");
-          for(int i =0;i<sizeOptions.getPropertyCount();i++) {
-              SoapObject item = (SoapObject) sizeOptions.getProperty(i);
-              allSize.put((String)item.getProperty("value"),(String)item.getProperty("label"));
-          }
-      }
            private ProductSimple createSimpleProduct(SoapObject r) {
                ProductSimple p = new ProductSimple();
                p.setProduct_id((String) r.getProperty("product_id"));
@@ -319,17 +287,6 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
                return p;*/
 
 
-      private String getProductImage(String product_id) throws IOException, XmlPullParserException {
-          request = new SoapObject(NAMESPACE, "catalogProductAttributeMediaList");
-          request.addProperty("sessionId", sessionId);
-          request.addProperty("productId", "7");
-          env.setOutputSoapObject(request);
-          androidHttpTransport.call("", env);
-          r = (SoapObject) env.getResponse();
-          Log.d("ImageUrl", r.toString());
-          return r.toString();
-      }
-
       protected void onProgressUpdate(Float... valores) {
                int p = Math.round(100 * valores[0]);
           pDialog.setProgress(p);
@@ -341,14 +298,17 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
 
                Log.d("Hi", "Done Downloading.");
                Log.d("count number",Integer.toString(count));
-               if(number ==1 || count == addItemsNumber){
+               if(count == addItemsNumber){
                createItemList(productConfigurables);}
-               else{
-                   Log.d("size product",Integer.toString(productConfigurables.size()));
-                   Log.d("number times",Integer.toString(number));
-               adapter1.addAllProduct(productConfigurables);
+               else {
+                   Log.d("size product", Integer.toString(productConfigurables.size()));
+                   if(adapter1 == null){
+                      createItemList(productConfigurables);
+                       TextView error = (TextView)findViewById(R.id.error_message);
+                       error.setText("We have problem with connection,try again please");
+                   }
+                   adapter1.addAllProduct(productConfigurables);
                }
-               number++;
 
                pDialog.dismiss();
 

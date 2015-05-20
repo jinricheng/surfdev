@@ -1,12 +1,17 @@
 package myaplication.tfg.org.myapplication;
 
 import android.app.ActionBar;
+import android.app.ProgressDialog;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -32,6 +37,13 @@ import android.widget.Toast;
 
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,30 +59,195 @@ public class IndividualItemInfo extends ActionBarActivity {
     private LinearLayout layoutQuantity;
     private PopupWindow popSize;
     private PopupWindow popQuantity;
-    private ListView slideMenu;
-    private List<HashMap<String,String>> list2;
-    private SimpleAdapter adapter1;
-    private DrawerLayout drawerLayout;
+    private HashMap<String,ProductSimple> sizeAndProduct;
+    private HashMap<String,String>sizeAndStock;
+    private HashMap<String,String> allSize;
+    private int quantityNumber;
+    private String size;
+    private RadioGroup radioGroup;
+    private RadioButton radioButton;
+    private String sessionId;
+    private SoapSerializationEnvelope env;
+    private HttpTransportSE androidHttpTransport;
+    private SoapObject request;
+    private SoapObject r;
+    private ProductConfigurable p;
+    private List<String> simpleProductsIds;
+    private List<String> sizeAvailable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initSlideMenu();
+        setContentView(R.layout.activity_individual_item_info);
+        Bundle bundle = getIntent().getBundleExtra("bundle");
+        p =(ProductConfigurable)bundle.getSerializable("key");
+        simpleProductsIds = new ArrayList<>();
+        sizeAndProduct = new HashMap<>();
+        sizeAndStock =new HashMap<>();
+        sizeAvailable = new ArrayList<>();
+        allSize = new HashMap<>();
+        size = "";
         initCusmizedActionBar();
-        getIndividualItemInfo();
+        new DownLoadSimpleProduct().execute();
+      //  getIndividualItemInfo();
+        quantityNumber = 1;
+     //   bottomMenu();
 
-        bottomMenu();
       //  setQuantityButton();
     }
-
-    private void initSlideMenu() {
+    private void getItemInfo() {
+        TextView title = (TextView)findViewById(R.id.detail_title);
+        TextView price = (TextView)findViewById(R.id.detail_price);
+        TextView description = (TextView)findViewById(R.id.detail_description);
+        TextView stock =(TextView)findViewById(R.id.stock);
+        ImageView image = (ImageView)findViewById(R.id.detail_image);
+        TextView d = (TextView)findViewById(R.id.d);
+        String fullprice = "Price: " + p.getPrice();
+        title.setText(p.getTitle());
+        UrlImageViewHelper.setUrlDrawable(image, p.getImage());
+        description.setText(p.getDescription());
+        price.setText(fullprice);
+        d.setText("Description");
     }
 
-    private class slideMenuItemsClickListener implements ListView.OnItemClickListener{
+    private class DownLoadSimpleProduct extends AsyncTask<String, Float, String> {
+        ProgressDialog pDialog;
+        String NAMESPACE = "urn:Magento";
+        String URL = "http://gonegocio.es/index.php/api/v2_soap/";
+
         @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Log.d("Hi", "Download Commencing");
+            pDialog = new ProgressDialog(IndividualItemInfo.this);
+            String message = "Esperando...";
+            SpannableString ss2 = new SpannableString(message);
+            ss2.setSpan(new RelativeSizeSpan(2f), 0, ss2.length(), 0);
+            ss2.setSpan(new ForegroundColorSpan(Color.BLACK), 0, ss2.length(), 0);
+            pDialog.setMessage(ss2);
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                setupSessionLogin();
+                getAllSize();
+                getAllSimpleProduct();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (XmlPullParserException e) {
+                e.printStackTrace();
+            }
+
+            return "executed";
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            pDialog.dismiss();
+            getItemInfo();
+            bottomMenu();
+        }
+
+
+        private void setupSessionLogin() throws IOException, XmlPullParserException {
+            env = new SoapSerializationEnvelope(
+                    SoapEnvelope.VER11);
+            env.dotNet = false;
+            env.xsd = SoapSerializationEnvelope.XSD;
+            env.enc = SoapSerializationEnvelope.ENC;
+            request = new SoapObject(NAMESPACE, "login");
+            request.addProperty("username", "jin");
+            request.addProperty("apiKey", "1234567890");
+            env.setOutputSoapObject(request);
+            androidHttpTransport = new HttpTransportSE(URL);
+            androidHttpTransport.call("", env);
+            Object result = env.getResponse();
+            sessionId = (String) result;
+        }
+
+        private void getAllSize() throws IOException, XmlPullParserException {
+            request = new SoapObject(NAMESPACE, "catalogProductAttributeInfo");
+            request.addProperty("sessionId", sessionId);
+            request.addProperty("attribute", "size");
+            env.setOutputSoapObject(request);
+            androidHttpTransport.call("", env);
+            r = (SoapObject) env.getResponse();
+            SoapObject sizeOptions = (SoapObject) r.getProperty("options");
+            for (int i = 0; i < sizeOptions.getPropertyCount(); i++) {
+                SoapObject item = (SoapObject) sizeOptions.getProperty(i);
+                allSize.put((String) item.getProperty("value"), (String) item.getProperty("label"));
+            }
+        }
+
+        private String getAdditionalAttributeValue(String productId) throws IOException, XmlPullParserException {
+            SoapObject attributes = new SoapObject(NAMESPACE,"attributes");
+            SoapObject additional = new SoapObject(NAMESPACE,"additional_attributes");
+            additional.addProperty("attribute","size");
+            SoapObject requestAtributtes = new SoapObject(NAMESPACE,"catalogProductRequestAttributes");
+            requestAtributtes.addProperty("attributes",attributes);
+            requestAtributtes.addProperty("additional_attributes",additional);
+            request = new SoapObject(NAMESPACE, "catalogProductInfo");
+            request.addProperty("sessionId", sessionId);
+            request.addProperty("productId", productId);
+            request.addProperty("attributes",requestAtributtes);
+            env.setOutputSoapObject(request);
+            androidHttpTransport.call("", env);
+            r = (SoapObject) env.getResponse();
+            SoapObject result = (SoapObject)r.getProperty(r.getPropertyCount()-1);
+            result= (SoapObject)result.getProperty("item");
+            String value = (String)result.getProperty("value");
+
+            return value;
+        }
+
+        private void getAllSimpleProduct() throws IOException, XmlPullParserException {
+            simpleProductsIds = p.getSimpleProductId();
+            getIndividualProductInfo();
+            getSimpleProductsStock();
+        }
+
+
+        private void getSimpleProductsStock(){
 
         }
+        public void getIndividualProductInfo() throws IOException, XmlPullParserException {
+            for (int i = 0; i < simpleProductsIds.size(); i++) {
+                String productId = simpleProductsIds.get(i);
+                request = new SoapObject(NAMESPACE, "catalogProductInfo");
+                request.addProperty("sessionId", sessionId);
+                request.addProperty("productId", productId);
+                env.setOutputSoapObject(request);
+                androidHttpTransport.call("", env);
+                r = (SoapObject) env.getResponse();
+                createSimpleProduct();
+                /*
+                Double price=Double.parseDouble((String)r.getProperty("price"));
+                String pr = String.format("%.2f",price);
+                p.setPrice(pr);
+                p.setDescription((String) r.getProperty("description"));
+                p.setSection(section);
+                productConfigurables.set(i, p);*/
+            }
+        }
+
+        private void createSimpleProduct() throws IOException, XmlPullParserException {
+               ProductSimple simple = new ProductSimple();
+               simple.setTitle((String) r.getProperty("name"));
+               simple.setProduct_id((String) r.getProperty("product_id"));
+               simple.setSku((String) r.getProperty("sku"));
+               simple.setType((String)r.getProperty("type"));
+               String sizeValue = getAdditionalAttributeValue(simple.getProduct_id());
+               String size = allSize.get(sizeValue);
+               simple.setSize(size);
+               sizeAndProduct.put(size,simple);
+               Log.d("products simple size",sizeAndProduct.keySet().toString());
+        }
     }
+
 
     private void bottomMenu() {
 
@@ -90,7 +267,10 @@ public class IndividualItemInfo extends ActionBarActivity {
         layoutQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (popQuantity != null && popQuantity.isShowing()) {
+                if(size.equals("")){
+                    Toast.makeText(getApplicationContext(),"Please Choose a Size first",Toast.LENGTH_LONG).show();
+                }
+                else if (popQuantity != null && popQuantity.isShowing()) {
                     popQuantity.dismiss();
                 } else {
                     setUpPopWindow(v, 2);
@@ -103,7 +283,7 @@ public class IndividualItemInfo extends ActionBarActivity {
         initPopUpWindowsSize(v,i);
         int[] location = new int[2];
         int[] location2 = new int[2];
-        Log.d("position ",Integer.toString(i));
+        Log.d("position ", Integer.toString(i));
 
         switch (i) {
             case 1:
@@ -136,6 +316,7 @@ public class IndividualItemInfo extends ActionBarActivity {
                 popSize.setAnimationStyle(R.style.AnimationPreview);
                 popSize.setFocusable(true);
                 popSize.setOutsideTouchable(true);
+
                 getItemSize(customView);
               //  setQuantityButton(customView);
               customView.setOnTouchListener(new View.OnTouchListener() {
@@ -158,13 +339,14 @@ public class IndividualItemInfo extends ActionBarActivity {
                 popQuantity.setAnimationStyle(R.style.AnimationPreview);
                 popQuantity.setFocusable(true);
                 popQuantity.setOutsideTouchable(true);
+
                 setQuantityButton(customView);
                 customView.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
-                        if(popQuantity!=null && popQuantity.isShowing()){
+                        if (popQuantity != null && popQuantity.isShowing()) {
                             popQuantity.dismiss();
-                            popQuantity =null;
+                            popQuantity = null;
                         }
                         return false;
                     }
@@ -179,7 +361,7 @@ public class IndividualItemInfo extends ActionBarActivity {
         plusbutton = (ImageButton)v.findViewById(R.id.plus);
         minusbutton = (ImageButton)v.findViewById(R.id.minus);
         quantity =(TextView)v.findViewById(R.id.quantity);
-        quantity.setText("1");
+        quantity.setText(Integer.toString(quantityNumber));
         listen();
 
     }
@@ -190,13 +372,12 @@ public class IndividualItemInfo extends ActionBarActivity {
             public void onClick(View v) {
 
                 int number = Integer.valueOf(quantity.getText().toString());
-                number = number+1;
-                if(number>9){
+                quantityNumber = quantityNumber + 1;
+                if (quantityNumber > 9) {
                     quantity.setText("10");
                     plusbutton.setEnabled(false);
-                }
-                else{
-                    quantity.setText(Integer.toString(number));
+                } else {
+                    quantity.setText(Integer.toString(quantityNumber));
                     plusbutton.setEnabled(true);
                     minusbutton.setEnabled(true);
                 }
@@ -207,13 +388,12 @@ public class IndividualItemInfo extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 int number = Integer.valueOf(quantity.getText().toString());
-                number = number-1;
-                if(number<2){
+                quantityNumber = quantityNumber - 1;
+                if (number < 2) {
                     quantity.setText("1");
                     minusbutton.setEnabled(false);
-                }
-                else{
-                    quantity.setText(Integer.toString(number));
+                } else {
+                    quantity.setText(Integer.toString(quantityNumber));
                     minusbutton.setEnabled(true);
                     plusbutton.setEnabled(true);
                 }
@@ -224,54 +404,40 @@ public class IndividualItemInfo extends ActionBarActivity {
 
     private void getItemSize(View v) {
         String[] spinnerinfo = new String[]{"XS","S","M","L","XL"};
-        final RadioGroup radioGroup = (RadioGroup)v.findViewById(R.id.size_group);
+        radioGroup = (RadioGroup)v.findViewById(R.id.size_group);
         float density = getResources().getDisplayMetrics().density;
         int margin =15;
         int id = 0;
         RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.setMargins(margin,margin,margin,margin);
+        params.setMargins(margin, margin, margin, margin);
         for(int i =0; i<spinnerinfo.length;i++){
           RadioButton tempButton = new RadioButton(this);
+
           tempButton.setText(spinnerinfo[i]);
-          tempButton.setTextSize(18);
+          tempButton.setTextSize(20);
           tempButton.setId(i);
           tempButton.setTag(i);
+            if(!sizeAndProduct.containsKey(spinnerinfo[i])){
+                 tempButton.setEnabled(false);
+            }
           radioGroup.addView(tempButton,params);
-        }
 
+        }
+        if(radioButton !=null){
+            radioGroup.check(radioButton.getId());
+        }
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    RadioButton radioButton = (RadioButton)group.getChildAt(checkedId);
-                    Log.d("Radio", radioButton.getText().toString());
+                radioButton = (RadioButton) group.getChildAt(checkedId);
+                size = radioButton.getText().toString();
+                Log.d("Radio", radioButton.getText().toString());
             }
         });
 
     }
 
-    private void getIndividualItemInfo() {
-        setContentView(R.layout.activity_individual_item_info);
-        Bundle bundle = getIntent().getBundleExtra("bundle");
-        ProductConfigurable p =(ProductConfigurable)bundle.getSerializable("key");
-        TextView title = (TextView)findViewById(R.id.detail_title);
-        TextView price = (TextView)findViewById(R.id.detail_price);
-        TextView description = (TextView)findViewById(R.id.detail_description);
-        TextView stock =(TextView)findViewById(R.id.stock);
-        ImageView image = (ImageView)findViewById(R.id.detail_image);
-        String fullprice = "Price: "+p.getPrice();
-        title.setText(p.getTitle());
-       if(p.getTitle().equals("VOLCOM SUPERNATURAL INS JACKET ELECTRIC GREEN - 2015")){
-            stock.setText("In Stock");
-            stock.setTextColor(Color.parseColor("#31B404"));
-        }
-        else{
-            stock.setText("Out Of Stock");
-            stock.setTextColor(Color.parseColor("#DF0101"));
-        }
-        UrlImageViewHelper.setUrlDrawable(image, p.getImage());
-        description.setText(p.getDescription());
-        price.setText(fullprice);
-    }
+
 
 
     @Override
