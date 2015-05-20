@@ -9,7 +9,30 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33f5d812-fd02-4a0f-9d2c-d21d956a1f95" name="Default" comment="" />
+    <list default="true" id="33f5d812-fd02-4a0f-9d2c-d21d956a1f95" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/StringArraySerializer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$DownLoadSimpleProduct.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$DownLoadSimpleProduct.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos$DownLoad.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos$DownLoad.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos$productDetailClickListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos$productDetailClickListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="MyApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/MasVendidos.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="127" column="18" selection-start-line="127" selection-start-column="18" selection-end-line="127" selection-end-column="40" />
+              <caret line="133" column="70" selection-start-line="127" selection-start-column="16" selection-end-line="133" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -68,23 +91,43 @@
       <file leaf-file-name="IndividualItemInfo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.06575342">
-              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5550935">
+              <caret line="228" column="41" selection-start-line="228" selection-start-column="41" selection-end-line="228" selection-end-column="41" />
               <folding>
-                <element signature="e#10504#10806#0" expanded="true" />
-                <element signature="e#10805#10806#0" expanded="true" />
-                <element signature="e#10851#11340#0" expanded="true" />
-                <element signature="e#11339#11340#0" expanded="true" />
-                <element signature="e#12977#13367#0" expanded="true" />
-                <element signature="e#13366#13367#0" expanded="true" />
-                <element signature="e#14079#14490#0" expanded="true" />
-                <element signature="e#14489#14490#0" expanded="true" />
-                <element signature="e#14893#15490#0" expanded="true" />
-                <element signature="e#15489#15490#0" expanded="true" />
-                <element signature="e#15533#16121#0" expanded="true" />
-                <element signature="e#16120#16121#0" expanded="true" />
-                <element signature="e#17196#17556#0" expanded="true" />
-                <element signature="e#17555#17556#0" expanded="true" />
+                <element signature="e#11787#12089#0" expanded="true" />
+                <element signature="e#12088#12089#0" expanded="true" />
+                <element signature="e#12134#12623#0" expanded="true" />
+                <element signature="e#12622#12623#0" expanded="true" />
+                <element signature="e#14260#14650#0" expanded="true" />
+                <element signature="e#14649#14650#0" expanded="true" />
+                <element signature="e#15362#15773#0" expanded="true" />
+                <element signature="e#15772#15773#0" expanded="true" />
+                <element signature="e#16176#16773#0" expanded="true" />
+                <element signature="e#16772#16773#0" expanded="true" />
+                <element signature="e#16816#17404#0" expanded="true" />
+                <element signature="e#17403#17404#0" expanded="true" />
+                <element signature="e#18479#18839#0" expanded="true" />
+                <element signature="e#18838#18839#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StringArraySerializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/StringArraySerializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#484#485#0" expanded="true" />
+                <element signature="e#521#522#0" expanded="true" />
+                <element signature="e#572#573#0" expanded="true" />
+                <element signature="e#606#607#0" expanded="true" />
+                <element signature="e#866#867#0" expanded="true" />
+                <element signature="e#893#894#0" expanded="true" />
+                <element signature="e#1024#1025#0" expanded="true" />
+                <element signature="e#1065#1066#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -156,6 +199,16 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -1416,6 +1469,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_mas_vendidos.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_individual_item_info.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/MasVendidos.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/StringArraySerializer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java" />
       </list>
     </option>
@@ -1439,7 +1493,7 @@
     <option name="width" value="1616" />
     <option name="height" value="916" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -1812,6 +1866,13 @@
       <option name="number" value="Default" />
       <updated>1431955056910</updated>
     </task>
+    <task id="LOCAL-00001" summary="new modification">
+      <created>1432122592663</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1432122592663</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1830,7 +1891,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938075" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1858,15 +1919,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="new modification" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java</url>
-          <line>186</line>
-          <properties />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
@@ -2147,33 +2205,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/StringArraySerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#484#485#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#866#867#0" expanded="true" />
+            <element signature="e#893#894#0" expanded="true" />
+            <element signature="e#1024#1025#0" expanded="true" />
+            <element signature="e#1065#1066#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/MasVendidos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="18" selection-start-line="127" selection-start-column="18" selection-end-line="127" selection-end-column="40" />
+          <caret line="133" column="70" selection-start-line="127" selection-start-column="16" selection-end-line="133" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06575342">
-          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5550935">
+          <caret line="228" column="41" selection-start-line="228" selection-start-column="41" selection-end-line="228" selection-end-column="41" />
           <folding>
-            <element signature="e#10504#10806#0" expanded="true" />
-            <element signature="e#10805#10806#0" expanded="true" />
-            <element signature="e#10851#11340#0" expanded="true" />
-            <element signature="e#11339#11340#0" expanded="true" />
-            <element signature="e#12977#13367#0" expanded="true" />
-            <element signature="e#13366#13367#0" expanded="true" />
-            <element signature="e#14079#14490#0" expanded="true" />
-            <element signature="e#14489#14490#0" expanded="true" />
-            <element signature="e#14893#15490#0" expanded="true" />
-            <element signature="e#15489#15490#0" expanded="true" />
-            <element signature="e#15533#16121#0" expanded="true" />
-            <element signature="e#16120#16121#0" expanded="true" />
-            <element signature="e#17196#17556#0" expanded="true" />
-            <element signature="e#17555#17556#0" expanded="true" />
+            <element signature="e#11787#12089#0" expanded="true" />
+            <element signature="e#12088#12089#0" expanded="true" />
+            <element signature="e#12134#12623#0" expanded="true" />
+            <element signature="e#12622#12623#0" expanded="true" />
+            <element signature="e#14260#14650#0" expanded="true" />
+            <element signature="e#14649#14650#0" expanded="true" />
+            <element signature="e#15362#15773#0" expanded="true" />
+            <element signature="e#15772#15773#0" expanded="true" />
+            <element signature="e#16176#16773#0" expanded="true" />
+            <element signature="e#16772#16773#0" expanded="true" />
+            <element signature="e#16816#17404#0" expanded="true" />
+            <element signature="e#17403#17404#0" expanded="true" />
+            <element signature="e#18479#18839#0" expanded="true" />
+            <element signature="e#18838#18839#0" expanded="true" />
           </folding>
         </state>
       </provider>

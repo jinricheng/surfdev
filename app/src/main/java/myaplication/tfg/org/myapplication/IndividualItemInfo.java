@@ -38,6 +38,7 @@ import android.widget.Toast;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
@@ -61,6 +62,7 @@ public class IndividualItemInfo extends ActionBarActivity {
     private PopupWindow popQuantity;
     private HashMap<String,ProductSimple> sizeAndProduct;
     private HashMap<String,String>sizeAndStock;
+    private HashMap<String,String> productAndStock;
     private HashMap<String,String> allSize;
     private int quantityNumber;
     private String size;
@@ -83,6 +85,7 @@ public class IndividualItemInfo extends ActionBarActivity {
         simpleProductsIds = new ArrayList<>();
         sizeAndProduct = new HashMap<>();
         sizeAndStock =new HashMap<>();
+        productAndStock = new HashMap<>();
         sizeAvailable = new ArrayList<>();
         allSize = new HashMap<>();
         size = "";
@@ -211,9 +214,29 @@ public class IndividualItemInfo extends ActionBarActivity {
         }
 
 
-        private void getSimpleProductsStock(){
-
+        private void getSimpleProductsStock() throws XmlPullParserException, IOException {
+            request = new SoapObject(NAMESPACE,"catalogInventoryStockItemList");
+            StringArraySerializer stringArray = new StringArraySerializer();
+            for(int i=0;i<simpleProductsIds.size();i++) {
+                stringArray.add(simpleProductsIds.get(i));
+            }
+            PropertyInfo stringArrayProperty = new PropertyInfo();
+            stringArrayProperty.setName("products");
+            stringArrayProperty.setValue(stringArray);
+            stringArrayProperty.setType(stringArray.getClass());
+            request.addProperty("sessionId", sessionId);
+            request.addProperty(stringArrayProperty);
+            env.setOutputSoapObject(request);
+            androidHttpTransport.call("", env);
+            r = (SoapObject) env.getResponse();
+            for(int i =0;i<r.getPropertyCount();i++){
+                SoapObject child =(SoapObject)r.getProperty(i);
+                productAndStock.put((String)child.getProperty("product_id"),(String)child.getProperty("qty"));
+            }
+            Log.d("product stock",productAndStock.values().toString());
         }
+
+
         public void getIndividualProductInfo() throws IOException, XmlPullParserException {
             for (int i = 0; i < simpleProductsIds.size(); i++) {
                 String productId = simpleProductsIds.get(i);
@@ -410,9 +433,8 @@ public class IndividualItemInfo extends ActionBarActivity {
         int id = 0;
         RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.setMargins(margin, margin, margin, margin);
-        for(int i =0; i<spinnerinfo.length;i++){
+        for (int i =0; i<spinnerinfo.length;i++){
           RadioButton tempButton = new RadioButton(this);
-
           tempButton.setText(spinnerinfo[i]);
           tempButton.setTextSize(20);
           tempButton.setId(i);
