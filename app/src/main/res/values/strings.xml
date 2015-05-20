@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">Surfdevils</string>
+    <string name="titulo">SurfDevils</string>
+    <string name="image">image1</string>
+    <string name="buttonMesage">ENTRAR</string>
+    <string name="copyRight">CopyRight 2015 surfdevils.com</string>
+    <string name="title_activity_menu1">menu1</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="description">Description:</string>
+    <string name="title_activity_fisrt_page">FisrtPage</string>
+    <string name="size">Size:  </string>
+
+    <string-array name="navigationFirstLevel">
+        <item>SnowBoard</item>
+        <item>SnowWear</item>
+        <item>TechnicalFleece</item>
+        <item>Boots</item>
+        <item>Goggles</item>
+        <item>Protection</item>
+        <item>StreetWear</item>
+        <item>Bindings</item>
+        <item>Bags</item>
+        <item>Accessories</item>
+        <item>SportShoes</item>
+    </string-array>
+    <string-array name="snowboard">
+        <item>Rocker</item>
+        <item>Camber</item>
+        <item>HybridRocker</item>
+        <item>Packs</item>
+        <item>TripleBase</item>
+        <item>All Boards</item>
+    </string-array>
+
+    <string-array name="snowWear">
+        <item>Jackets</item>
+        <item>Pants</item>
+        <item>Golves</item>
+        <item>Technical Underwear</item>
+        <item>All SnowWear</item>
+    </string-array>
+
+    <string-array name="bindings">
+        <item>Disc</item>
+        <item>Est</item>
+        <item>All Bindings</item>
+    </string-array>
+
+    <string-array name="boots">
+        <item>Laces</item>
+        <item>SpeedLaces</item>
+        <item>BOA</item>
+        <item>All Boots</item>
+    </string-array>
+
+    <string-array name="goggles">
+        <item>GogglesCases</item>
+        <item>ReplacementLenses</item>
+        <item>BOA</item>
+        <item>All Goggles</item>
+    </string-array>
+
+    <string-array name="protection">
+        <item>Helmets</item>
+    </string-array>
+
+    <string-array name="fleece">
+        <item>FULLZIP</item>
+        <item>HOODIES</item>
+        <item>CREW</item>
+        <item>VEST</item>
+        <item>All Fleece</item>
+    </string-array>
+
+    <string-array name="bags">
+        <item>DayPacks</item>
+        <item>BoardBags</item>
+        <item>TRAVEL AND LUGGAGE</item>
+        <item>CCE</item>
+        <item>All Bags</item>
+    </string-array>
+
+    <string-array name="StreetWear">
+        <item>T-Shirt</item>
+        <item>CrewJackets</item>
+        <item>SWEATERS</item>
+        <item>FULLZIP HOODIES</item>
+        <item>All StreetWear</item>
+    </string-array>
+
+    <string-array name="Accessories">
+        <item>Beanies</item>
+        <item>BELTS</item>
+        <item>KEYCHAIN</item>
+        <item>WALLETS</item>
+        <item>CAPS</item>
+        <item>All Accessories</item>
+    </string-array>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="title_activity_shop_cart">shopCart</string>
+    <string name="title_activity_oferta">Oferta</string>
+    <string name="title_activity_oferta_item_detail">OfertaItemDetail</string>
+    <string name="title_activity_individual_item_info">IndividualItemInfo</string>
+    <string name="title_activity_mas_vendidos">MasVendidos</string>
+    <string name="title_activity_news">News</string>
+    <string name="title_activity_soap_test">soapTest</string>
+    <string name="action_settings">Settings</string>
+</resources>

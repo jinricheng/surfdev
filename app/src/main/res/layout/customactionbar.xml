@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="50dp"
+
+    tools:context="myaplication.tfg.org.myapplication.FisrtPage">
+
+
+    <ImageButton
+        android:id="@+id/shopCartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/number"
+        android:background="@null"
+        android:src="@drawable/ic_action_action_shopping_cart"
+        android:onClick="Cart"/>
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="0"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000"
+        android:textSize="24dp"
+        android:text="SurfDevils"
+        android:textStyle="italic|bold" />
+
+
+</RelativeLayout>

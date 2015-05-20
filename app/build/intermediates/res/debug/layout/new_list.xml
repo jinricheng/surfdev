@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_row_selector"
+    android:padding="5dp" >
+
+
+
+
+    <ImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="95dip"
+        android:layout_height="95dip"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dp"
+        />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:textSize="15dip"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/Price"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:textColor="#000"
+        android:textSize="23dip"
+        android:textStyle="italic"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_alignRight="@+id/thumbnail"
+        android:layout_alignParentBottom="true"
+        android:background="@null">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@null"
+            android:src="@drawable/new_icon"
+            android:layout_marginBottom="6dp"/>
+
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/next3"
+        android:layout_below="@id/title"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        />
+
+</RelativeLayout><!-- From: file:/C:/Users/jin/Desktop/img/jpg/AndroidStudioProjects/MyApplication/app/src/main/res/layout/new_list.xml -->

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar"></style>
+    <!-- Base application theme. -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/myActionBar</item>
+        <item name="colorPrimary">#CEECF5</item>
+    </style>
+
+    <style name="myActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/actionbar</item>
+    </style>
+
+
+
+
+
+</resources>
