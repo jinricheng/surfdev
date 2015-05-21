@@ -2,8 +2,10 @@ package myaplication.tfg.org.myapplication;
 
 import android.app.ActionBar;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -327,9 +329,26 @@ public class IndividualItemInfo extends ActionBarActivity {
         if(size.equals("")){
             noSizeChosenWarning();
         }
+        if(quantityNumber ==0){
+            noQuantityChosenWarning();
+        }
         else {
             dialogAddToCart();
         }
+    }
+
+    private void noQuantityChosenWarning() {
+        new SweetAlertDialog(IndividualItemInfo.this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Choose Quantity")
+                .setContentText("You have to choose at least 1")
+                .setConfirmText("Ok")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     private void dialogAddToCart() {
@@ -358,8 +377,10 @@ public class IndividualItemInfo extends ActionBarActivity {
                                     public void onClick(SweetAlertDialog sDialog) {
                                         ProductSimple simpleToCart = sizeAndProduct.get(size);
                                         simpleToCart.setPrice(p.getPrice());
+                                        simpleToCart.setItemNumber(quantityNumber);
                                         simpleToCart.setQuantity(totalQuantity);
                                         Log.d("the product chosen ", simpleToCart.toString());
+                                        DataHolder.addProductSimple(simpleToCart);
                                         updateTotalQuantity();
                                         sDialog.dismiss();
                                         CheckoutOcontinueDialog();
@@ -383,7 +404,7 @@ public class IndividualItemInfo extends ActionBarActivity {
     }
 
     private void CheckoutOcontinueDialog() {
-        new SweetAlertDialog(IndividualItemInfo.this, SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+        new SweetAlertDialog(IndividualItemInfo.this, SweetAlertDialog.NORMAL_TYPE)
                 .setTitleText("Continue o CheckOut")
                 .setContentText("Do you want to check out o to continue buying?")
                 .setCancelText("Continue to buy")
@@ -399,6 +420,8 @@ public class IndividualItemInfo extends ActionBarActivity {
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
                         sDialog.dismiss();
+                        Intent intent = new Intent(IndividualItemInfo.this,CheckOutList.class);
+                        startActivity(intent);
                     }
                 })
                 .show();

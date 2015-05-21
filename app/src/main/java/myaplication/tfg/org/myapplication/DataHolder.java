@@ -24,4 +24,7 @@ public class DataHolder {
     public static void setProductSimples(List<ProductSimple> list){
         productSimples = list;
     }
+    public static void addProductSimple(ProductSimple p){
+        productSimples.add(p);
+    }
 }
