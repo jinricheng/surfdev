@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,6 +35,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
@@ -48,7 +50,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class IndividualItemInfo extends ActionBarActivity {
     private ImageButton imageButton;
@@ -60,6 +62,7 @@ public class IndividualItemInfo extends ActionBarActivity {
     private LinearLayout layoutQuantity;
     private PopupWindow popSize;
     private PopupWindow popQuantity;
+    private PopupWindow popCart;
     private HashMap<String,ProductSimple> sizeAndProduct;
     private HashMap<String,String>sizeAndStock;
     private HashMap<String,String> productAndStock;
@@ -76,10 +79,14 @@ public class IndividualItemInfo extends ActionBarActivity {
     private ProductConfigurable p;
     private List<String> simpleProductsIds;
     private List<String> sizeAvailable;
+    private TextView listNumber;
+    private int totalQuantity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual_item_info);
+        setResourceDrawabl();
         Bundle bundle = getIntent().getBundleExtra("bundle");
         p =(ProductConfigurable)bundle.getSerializable("key");
         simpleProductsIds = new ArrayList<>();
@@ -91,12 +98,15 @@ public class IndividualItemInfo extends ActionBarActivity {
         size = "";
         initCusmizedActionBar();
         new DownLoadSimpleProduct().execute();
-      //  getIndividualItemInfo();
-        quantityNumber = 1;
-     //   bottomMenu();
+        quantityNumber = 0;
 
-      //  setQuantityButton();
+        //  setQuantityButton();
     }
+
+    private void setResourceDrawabl() {
+
+    }
+
     private void getItemInfo() {
         TextView title = (TextView)findViewById(R.id.detail_title);
         TextView price = (TextView)findViewById(R.id.detail_price);
@@ -233,7 +243,7 @@ public class IndividualItemInfo extends ActionBarActivity {
                 SoapObject child =(SoapObject)r.getProperty(i);
                 productAndStock.put((String)child.getProperty("product_id"),(String)child.getProperty("qty"));
             }
-            Log.d("product stock",productAndStock.values().toString());
+
         }
 
 
@@ -247,33 +257,24 @@ public class IndividualItemInfo extends ActionBarActivity {
                 androidHttpTransport.call("", env);
                 r = (SoapObject) env.getResponse();
                 createSimpleProduct();
-                /*
-                Double price=Double.parseDouble((String)r.getProperty("price"));
-                String pr = String.format("%.2f",price);
-                p.setPrice(pr);
-                p.setDescription((String) r.getProperty("description"));
-                p.setSection(section);
-                productConfigurables.set(i, p);*/
             }
         }
 
         private void createSimpleProduct() throws IOException, XmlPullParserException {
-               ProductSimple simple = new ProductSimple();
-               simple.setTitle((String) r.getProperty("name"));
-               simple.setProduct_id((String) r.getProperty("product_id"));
-               simple.setSku((String) r.getProperty("sku"));
-               simple.setType((String)r.getProperty("type"));
-               String sizeValue = getAdditionalAttributeValue(simple.getProduct_id());
-               String size = allSize.get(sizeValue);
-               simple.setSize(size);
-               sizeAndProduct.put(size,simple);
-               Log.d("products simple size",sizeAndProduct.keySet().toString());
+            ProductSimple simple = new ProductSimple();
+            simple.setTitle((String) r.getProperty("name"));
+            simple.setProduct_id((String) r.getProperty("product_id"));
+            simple.setSku((String) r.getProperty("sku"));
+            simple.setType((String)r.getProperty("type"));
+            String sizeValue = getAdditionalAttributeValue(simple.getProduct_id());
+            String size = allSize.get(sizeValue);
+            simple.setSize(size);
+            sizeAndProduct.put(size,simple);
+            Log.d("products simple size",sizeAndProduct.keySet().toString());
         }
     }
 
-
     private void bottomMenu() {
-
         layoutSize=(LinearLayout)findViewById(R.id.layout_watch);
         layoutCart=(LinearLayout)findViewById(R.id.layout_add_cart);
         layoutQuantity=(LinearLayout)findViewById(R.id.layout_quantity);
@@ -291,7 +292,7 @@ public class IndividualItemInfo extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 if(size.equals("")){
-                    Toast.makeText(getApplicationContext(),"Please Choose a Size first",Toast.LENGTH_LONG).show();
+                    noSizeChosenWarning();
                 }
                 else if (popQuantity != null && popQuantity.isShowing()) {
                     popQuantity.dismiss();
@@ -300,6 +301,107 @@ public class IndividualItemInfo extends ActionBarActivity {
                 }
             }
         });
+       layoutCart.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               addToCartDialog();
+           }
+       });
+    }
+
+    private void noSizeChosenWarning() {
+        new SweetAlertDialog(IndividualItemInfo.this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Choose a Size")
+                .setContentText("You have to choose a available size first")
+                .setConfirmText("Ok")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismiss();
+                    }
+                })
+                .show();
+    }
+
+    private void addToCartDialog() {
+        if(size.equals("")){
+            noSizeChosenWarning();
+        }
+        else {
+            dialogAddToCart();
+        }
+    }
+
+    private void dialogAddToCart() {
+        new SweetAlertDialog(IndividualItemInfo.this, SweetAlertDialog.NORMAL_TYPE)
+                .setTitleText("Do you want add this item:")
+                .setContentText("  " + p.getTitle())
+                .setCancelText("No,cancel it!")
+                .setConfirmText("Yes,add it!")
+                .showCancelButton(true)
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismiss();
+                    }
+                })
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.setTitleText("Added")
+                                .setContentText("Your item has been added to your cart")
+                                .setConfirmText("OK")
+                                .showCancelButton(false)
+                                .setCancelClickListener(null)
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sDialog) {
+                                        ProductSimple simpleToCart = sizeAndProduct.get(size);
+                                        simpleToCart.setPrice(p.getPrice());
+                                        simpleToCart.setQuantity(totalQuantity);
+                                        Log.d("the product chosen ", simpleToCart.toString());
+                                        updateTotalQuantity();
+                                        sDialog.dismiss();
+                                        CheckoutOcontinueDialog();
+                                    }
+                                })
+                                .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                    }
+                })
+                .show();
+
+    }
+
+    private void updateTotalQuantity() {
+        String n = listNumber.getText().toString();
+        int number = Integer.parseInt(n);
+        number = number +quantityNumber;
+        listNumber.setText(String.valueOf(number));
+        DataHolder.setNumber(number);
+        totalQuantity = totalQuantity-quantityNumber;
+        quantityNumber =0;
+    }
+
+    private void CheckoutOcontinueDialog() {
+        new SweetAlertDialog(IndividualItemInfo.this, SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                .setTitleText("Continue o CheckOut")
+                .setContentText("Do you want to check out o to continue buying?")
+                .setCancelText("Continue to buy")
+                .showCancelButton(true)
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismiss();
+                    }
+                })
+                .setConfirmText("Check Out")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     private void setUpPopWindow(View v, int i) {
@@ -318,6 +420,10 @@ public class IndividualItemInfo extends ActionBarActivity {
 
                 v.getLocationOnScreen(location2);
                 popQuantity.showAtLocation(v, Gravity.NO_GRAVITY, location2[0], location2[1] - popQuantity.getHeight());
+                layoutQuantity.setEnabled(true);
+                break;
+            case 3:
+                popCart.showAtLocation(v, Gravity.CENTER, 0,0);
                 layoutQuantity.setEnabled(true);
                 break;
         }
@@ -341,8 +447,8 @@ public class IndividualItemInfo extends ActionBarActivity {
                 popSize.setOutsideTouchable(true);
 
                 getItemSize(customView);
-              //  setQuantityButton(customView);
-              customView.setOnTouchListener(new View.OnTouchListener() {
+                //  setQuantityButton(customView);
+                customView.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
                         if(popSize!=null && popSize.isShowing()){
@@ -374,6 +480,8 @@ public class IndividualItemInfo extends ActionBarActivity {
                         return false;
                     }
                 });
+
+
         }
 
 
@@ -384,7 +492,20 @@ public class IndividualItemInfo extends ActionBarActivity {
         plusbutton = (ImageButton)v.findViewById(R.id.plus);
         minusbutton = (ImageButton)v.findViewById(R.id.minus);
         quantity =(TextView)v.findViewById(R.id.quantity);
-        quantity.setText(Integer.toString(quantityNumber));
+        int initialnumber = 0;
+        if(initialnumber == quantityNumber){
+            quantity.setText("0");
+            Log.d("quantity", Integer.toString(quantityNumber));
+            Log.d("Total quantity", Integer.toString(totalQuantity));
+        }
+        else if(totalQuantity < quantityNumber){
+            quantity.setText("0");
+            Log.d("quantity", Integer.toString(quantityNumber));
+            Log.d("Total quantity",Integer.toString(totalQuantity));
+        }
+        else{
+            quantity.setText(Integer.toString(quantityNumber));
+        }
         listen();
 
     }
@@ -393,16 +514,20 @@ public class IndividualItemInfo extends ActionBarActivity {
         plusbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                int number = Integer.valueOf(quantity.getText().toString());
-                quantityNumber = quantityNumber + 1;
-                if (quantityNumber > 9) {
-                    quantity.setText("10");
+                if (totalQuantity == 0) {
                     plusbutton.setEnabled(false);
+                    minusbutton.setEnabled(false);
                 } else {
-                    quantity.setText(Integer.toString(quantityNumber));
-                    plusbutton.setEnabled(true);
-                    minusbutton.setEnabled(true);
+                    quantityNumber = quantityNumber + 1;
+                    if (quantityNumber > totalQuantity) {
+                        quantityNumber = totalQuantity;
+                        quantity.setText(Integer.toString(quantityNumber));
+                        plusbutton.setEnabled(false);
+                    } else {
+                        quantity.setText(Integer.toString(quantityNumber));
+                        plusbutton.setEnabled(true);
+                        minusbutton.setEnabled(true);
+                    }
                 }
             }
         });
@@ -434,15 +559,15 @@ public class IndividualItemInfo extends ActionBarActivity {
         RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.setMargins(margin, margin, margin, margin);
         for (int i =0; i<spinnerinfo.length;i++){
-          RadioButton tempButton = new RadioButton(this);
-          tempButton.setText(spinnerinfo[i]);
-          tempButton.setTextSize(20);
-          tempButton.setId(i);
-          tempButton.setTag(i);
+            RadioButton tempButton = new RadioButton(this);
+            tempButton.setText(spinnerinfo[i]);
+            tempButton.setTextSize(20);
+            tempButton.setId(i);
+            tempButton.setTag(i);
             if(!sizeAndProduct.containsKey(spinnerinfo[i])){
-                 tempButton.setEnabled(false);
+                tempButton.setEnabled(false);
             }
-          radioGroup.addView(tempButton,params);
+            radioGroup.addView(tempButton,params);
 
         }
         if(radioButton !=null){
@@ -453,7 +578,12 @@ public class IndividualItemInfo extends ActionBarActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 radioButton = (RadioButton) group.getChildAt(checkedId);
                 size = radioButton.getText().toString();
-                Log.d("Radio", radioButton.getText().toString());
+                ProductSimple simple = (ProductSimple)sizeAndProduct.get(size);
+                String simpleProductid = simple.getProduct_id();
+                String q = productAndStock.get(simpleProductid);
+                Double number = Double.parseDouble(q);
+                totalQuantity =number.intValue();
+                Log.d("totalquantity", Integer.toString(totalQuantity));
             }
         });
 
@@ -492,6 +622,8 @@ public class IndividualItemInfo extends ActionBarActivity {
         LayoutInflater mInflater = LayoutInflater.from(this);
         View mCustomView = mInflater.inflate(R.layout.customactionbar, null);
         imageButton = (ImageButton)findViewById(R.id.shopCartButton);
+        listNumber = (TextView)mCustomView.findViewById(R.id.number);
+        listNumber.setText(Integer.toString(DataHolder.getNumber()));
         actionBar.setCustomView(mCustomView);
         actionBar.setDisplayShowCustomEnabled(true);
     }

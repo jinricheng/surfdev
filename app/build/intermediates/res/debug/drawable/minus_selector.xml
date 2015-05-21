@@ -3,4 +3,4 @@
 
     <item android:drawable="@drawable/minus_ico" android:state_enabled="true"/>
     <item android:drawable="@drawable/minus_grey" android:state_enabled="false"/>
-</selector><!-- From: file:/C:/Users/jin/Desktop/img/jpg/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/minus_selector.xml -->
+</selector><!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/drawable/minus_selector.xml -->

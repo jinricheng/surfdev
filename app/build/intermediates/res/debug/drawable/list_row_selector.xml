@@ -5,4 +5,4 @@
     <item android:drawable="@drawable/list_row_bg_hover" android:state_pressed="true"/>
     <item android:drawable="@drawable/list_row_bg_hover" android:state_pressed="false" android:state_selected="true"/>
 
-</selector><!-- From: file:/C:/Users/jin/Desktop/img/jpg/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/list_row_selector.xml -->
+</selector><!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/drawable/list_row_selector.xml -->

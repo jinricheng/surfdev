@@ -5,4 +5,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>
-<!-- From: file:/C:/Users/jin/Desktop/img/jpg/AndroidStudioProjects/MyApplication/app/src/main/res/menu/menu_soap_test.xml -->
+<!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/menu/menu_soap_test.xml -->

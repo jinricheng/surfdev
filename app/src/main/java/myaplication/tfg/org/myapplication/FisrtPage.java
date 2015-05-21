@@ -196,6 +196,9 @@ public class FisrtPage extends ActionBarActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         LayoutInflater mInflater = LayoutInflater.from(this);
         View mCustomView = mInflater.inflate(R.layout.customactionbar, null);
+        TextView listNumber = (TextView)mCustomView.findViewById(R.id.number);
+        int number = DataHolder.getNumber();
+        listNumber.setText(Integer.toString(number));
      //   imageButton = (ImageButton)findViewById(R.id.shopCartButton);
         actionBar.setCustomView(mCustomView);
         actionBar.setDisplayShowCustomEnabled(true);
@@ -211,8 +214,8 @@ public class FisrtPage extends ActionBarActivity {
         map1.put("images",Integer.toString(R.drawable.oferta));
         map2.put("nom","News>>");
         map2.put("images",Integer.toString(R.drawable.novedades));
-        map3.put("nom","Top sellers>>");
-        map3.put("images",Integer.toString(R.drawable.mas_vendidos));
+        map3.put("nom", "Top sellers>>");
+        map3.put("images", Integer.toString(R.drawable.mas_vendidos));
         list.add(map1);
         list.add(map2);
         list.add(map3);
@@ -264,6 +267,12 @@ public class FisrtPage extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        getCustomizedActionBar();
     }
 
 }

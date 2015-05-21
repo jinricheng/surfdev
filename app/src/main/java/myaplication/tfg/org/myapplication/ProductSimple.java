@@ -9,6 +9,7 @@ import java.util.List;
 public class ProductSimple extends Product implements Serializable{
 
     private String type;
+    private int quantity;
     public ProductSimple(){}
 
     public ProductSimple(String product_id,String image, String title, String price, String description, String size){
@@ -18,7 +19,18 @@ public class ProductSimple extends Product implements Serializable{
     public void setType(String type){
         this.type = type;
     }
-    public String getType(String type){
+    public String getType(){
         return this.type;
+    }
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
+    public int getQuantity(){
+        return this.quantity;
+    }
+
+    public String toString(){
+        return "Product Name: "+this.getTitle()+" Sku:  "+this.getSku()+"  Type: "+this.getType()+" Price "+this.getPrice()+" Quantity "+this.getQuantity()+" Size: " +
+                this.getSize();
     }
 }

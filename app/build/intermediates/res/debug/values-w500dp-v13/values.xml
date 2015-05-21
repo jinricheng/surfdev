@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/jin/Desktop/img/jpg/AndroidStudioProjects/MyApplication/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values-w500dp-v13/values.xml -->
+    <!-- From: file:/D:/TFGAplication/tfg/app/build/intermediates/exploded-aar/com.github.sd6352051.niftydialogeffects/niftydialogeffects/1.0.0/res/values-w500dp-v13/values.xml -->
+    <eat-comment/>
+    <dimen name="dialog_padding">64dp</dimen>
+    <!-- From: file:/D:/TFGAplication/tfg/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res/values-w500dp-v13/values.xml -->
     <eat-comment/>
     <integer name="abc_max_action_buttons">4</integer>
 </resources>

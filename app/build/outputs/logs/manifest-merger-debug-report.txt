@@ -21,6 +21,8 @@ application
 ADDED from AndroidManifest.xml:5:5
 MERGED from com.android.support:appcompat-v7:22.0.0:22:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
+MERGED from com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0:11:5
+MERGED from cn.pedant.sweetalert:library:1.2:11:5
 	android:label
 		ADDED from AndroidManifest.xml:8:9
 	android:allowBackup
@@ -113,6 +115,8 @@ uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:22.0.0:20:5
 MERGED from com.android.support:support-v4:22.0.0:20:5
+MERGED from com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0:7:5
+MERGED from cn.pedant.sweetalert:library:1.2:7:5
 	android:targetSdkVersion
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
