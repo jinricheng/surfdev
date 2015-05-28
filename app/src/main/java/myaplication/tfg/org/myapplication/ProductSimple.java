@@ -11,6 +11,7 @@ public class ProductSimple extends Product implements Serializable{
     private String type;
     private int quantity;
     private int itemNumber;
+
     public ProductSimple(){}
 
     public ProductSimple(String product_id,String image, String title, String price, String description, String size){
@@ -36,6 +37,8 @@ public class ProductSimple extends Product implements Serializable{
     public int getItemNumber(){
         return this.itemNumber;
     }
+
+
     public String toString(){
         return "Product Name: "+this.getTitle()+" Sku:  "+this.getSku()+"  Type: "+this.getType()+" Price "+this.getPrice()+" Quantity "+this.getQuantity()+" Size: " +
                 this.getSize();

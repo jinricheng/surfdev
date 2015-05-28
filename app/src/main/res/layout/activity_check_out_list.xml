@@ -1,8 +1,57 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="myaplication.tfg.org.myapplication.CheckOutList">
+<?xml version="1.0" encoding="utf-8"?>
 
 
+    <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</RelativeLayout>
+    <ListView android:id="@+id/check_out_list"
+        android:padding = "1dp"
+        android:layout_marginTop="3dp"
+       android:layout_width="match_parent"
+       android:layout_height="380dp"
+       android:divider="#F6E3CE"
+       android:dividerHeight="2px"
+       android:listSelector="#fff"
+       android:drawSelectorOnTop="false"
+    />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_below = "@+id/check_out_list"
+        android:layout_marginTop="10dp"
+        android:layout_height="3dip"
+        android:background="#FF909090"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        >
+    <TextView
+        android:id="@+id/total_Amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize = "25dp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/continuebutton"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/total_Amount"
+        android:text="Continue"
+        android:textSize="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:background="@drawable/round_button"
+        />
+    </RelativeLayout>
+</LinearLayout>

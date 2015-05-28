@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@+id/number"
         android:background="@null"
-        android:src="@drawable/ic_action_action_shopping_cart"
-        android:onClick="Cart"/>
+        android:src="@drawable/ic_action_action_shopping_cart" />
 
     <TextView
         android:id="@+id/number"

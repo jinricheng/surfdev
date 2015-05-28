@@ -55,6 +55,7 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
     private int count;
     private int allitems =0;
     private boolean isPageDiv;
+    private int allProductConfigurableCount = 0;
 
     private List<ProductConfigurable> listConfigurable;
     @Override
@@ -110,7 +111,7 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
             super.onPreExecute();
             Log.d("Hi", "Download Commencing");
             pDialog = new ProgressDialog(MasVendidos.this);
-            String message = "Esperando...";
+            String message = "Waiting...";
             SpannableString ss2 = new SpannableString(message);
             ss2.setSpan(new RelativeSizeSpan(2f), 0, ss2.length(), 0);
             ss2.setSpan(new ForegroundColorSpan(Color.BLACK), 0, ss2.length(), 0);
@@ -126,18 +127,9 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
 
                 if(sessionId.equals("")){
                     setupSessionLogin();}
- /*               StringArraySerializer stringArray = new StringArraySerializer();
-                  stringArray.add("7");
-                  stringArray.add("8");
-                  PropertyInfo stringArrayProperty = new PropertyInfo();
-                  stringArrayProperty.setName("products");
-                  stringArrayProperty.setValue(stringArray);
-                  stringArrayProperty.setType(stringArray.getClass());
-
-*/                Log.d("list all items size",Integer.toString(listAllItems.size()));
-                if(listAllItems.size()==0){
+            if(listAllItems.size()==0){
                     getAllListItem();}
-                createPartOfItems();
+                    createPartOfItems();
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -169,7 +161,7 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
             env.setOutputSoapObject(request);
             androidHttpTransport.call("", env);
             r = (SoapObject) env.getResponse();
-            Log.d("Products Gotten",r.toString());
+            Log.d("Products Gotten", r.toString());
             SoapObject child = (SoapObject) r.getProperty(0);
             String type = (String)child.getProperty("type");
             if((type.equals("configurable"))){
@@ -181,6 +173,7 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
         }
 
         private void startWithSimple() throws IOException, XmlPullParserException {
+            String temp = new String();
             for (int i = 0; i < r.getPropertyCount(); i++) {
                 SoapObject child = (SoapObject) r.getProperty(i);
                 listAllItems.add(child);
@@ -200,9 +193,9 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
                     p_configurable.addSimpleProductListId(simpleProductId);
                     productConfigurables.add(p_configurable);
                     p_configurable.setSection(section);
+                    Log.d("product configurable",child.toString());
                     temp = name;
                     simpleProductId = new ArrayList<>();
-                    Log.d("product configurable",child.toString());
                     count = count+1;
                 } else {
                     simpleProductId.add((String) child.getProperty("product_id"));
@@ -228,13 +221,7 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
                 }
                 else{
 
-                    p_configurable.addSimpleProductId((String)child.getProperty("product_id"));
-                }
-            }
-            for(ProductConfigurable pp : productConfigurables){
-                List<String> result = pp.getSimpleProductId();
-                for(int i =0;i<result.size();i++){
-                    Log.d("simple Id",result.get(i));
+                    p_configurable.addSimpleProductId((String) child.getProperty("product_id"));
                 }
             }
         }
@@ -244,20 +231,34 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
             ProductConfigurable p = new ProductConfigurable();
             for (int i =0;i< productConfigurables.size();i++) {
                 p = productConfigurables.get(i);
-                request = new SoapObject(NAMESPACE, "catalogProductInfo");
-                request.addProperty("sessionId", sessionId);
-                request.addProperty("productId", p.getProduct_id());
-                env.setOutputSoapObject(request);
-                androidHttpTransport.call("", env);
-                r = (SoapObject) env.getResponse();
-                Double price=Double.parseDouble((String)r.getProperty("price"));
-                String pr = String.format("%.2f",price);
-                p.setPrice(pr);
-                p.setDescription((String) r.getProperty("description"));
-                p.setSection(section);
-                productConfigurables.set(i, p);
-                Log.d("info",p.toString());
+                if(!DataHolder.getListProductConfigurable().containsKey(p.getProduct_id())) {
+                    getMoreProductInfoFromServer(i,p);
+                }
+                else{
+                    ProductConfigurable item = DataHolder.getListProductConfigurable().get(p.getProduct_id());
+                    Log.d("change to section",section);
+                    item.setSection(section);
+                    productConfigurables.set(i,item);
+                }
             }
+
+        }
+
+        private void getMoreProductInfoFromServer(int position,ProductConfigurable p) throws IOException, XmlPullParserException {
+            request = new SoapObject(NAMESPACE, "catalogProductInfo");
+            request.addProperty("sessionId", sessionId);
+            request.addProperty("productId", p.getProduct_id());
+            env.setOutputSoapObject(request);
+            androidHttpTransport.call("", env);
+            r = (SoapObject) env.getResponse();
+            Double price = Double.parseDouble((String) r.getProperty("price"));
+            String pr = String.format("%.2f", price);
+            p.setPrice(pr);
+            p.setDescription((String) r.getProperty("description"));
+            p.setSection(section);
+
+            productConfigurables.set(position,p);
+            DataHolder.getListProductConfigurable().put(p.getProduct_id(), p);
 
         }
 
@@ -266,7 +267,7 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
             p.setProduct_id((String) r.getProperty("product_id"));
             p.setSku((String) r.getProperty("sku"));
             p.setTitle((String) r.getProperty("name"));
-            String imageUrl = "http://gonegocio.es/media/catalog/product/androidImage/"+p.getProduct_id()+".jpg";
+            String imageUrl = "http://gonegocio.es/media/catalog/product/android/"+p.getSku()+".jpg";
             p.setImage(imageUrl);
             return p;}
 
@@ -280,14 +281,6 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
         }
 
 
-          /*     p.setDescription((String)r.getProperty("description"));
-               Double price=Double.parseDouble((String)r.getProperty("price"));
-               String pr = String.format("%.2f",price);
-             //  String ImageUrl= getProductImage(p.getProduct_id());
-               p.setPrice(pr);
-               return p;*/
-
-
         protected void onProgressUpdate(Float... valores) {
             int p = Math.round(100 * valores[0]);
             pDialog.setProgress(p);
@@ -298,11 +291,10 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
             super.onPostExecute(result);
 
             Log.d("Hi", "Done Downloading.");
-            Log.d("count number",Integer.toString(count));
-            if(count == addItemsNumber){
+            System.out.println("we have product at this moment "+count+" show available one time"+ addItemsNumber);
+            if(count <= addItemsNumber){
                 createItemList(productConfigurables);}
             else {
-                Log.d("size product", Integer.toString(productConfigurables.size()));
                 if(adapter1 == null){
                     createItemList(productConfigurables);
                     TextView error = (TextView)findViewById(R.id.error_message);
@@ -322,11 +314,12 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
 
     private void createItemList(List<ProductConfigurable> productConfigurables){
         ListView list = (ListView)findViewById(R.id.top_seller_list);
+        for(ProductConfigurable p : productConfigurables){
+            System.out.println(p.getSection());
+        }
         adapter1 = new MyProductAdapter(this, productConfigurables,R.layout.topseller_list);
         // moreView =getLayoutInflater().inflate(R.layout.listview_footer, null);
-
         list.setAdapter(adapter1);
-        listConfigurable= productConfigurables;
         list.setOnItemClickListener(new productDetailClickListener());
         list.setOnScrollListener(this);
 
@@ -334,20 +327,16 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
 
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
-        if (isPageDiv
-                && scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+        if (isPageDiv && scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
             if(allitems<listAllItems.size()){
                 new DownLoad().execute();}
 
-
         }
-
     }
 
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         isPageDiv = (firstVisibleItem + visibleItemCount == totalItemCount);
-
     }
 
     private class productDetailClickListener implements ListView.OnItemClickListener{
@@ -359,7 +348,8 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
 
     private void loadProductDetail(int position){
         Bundle bundle = new Bundle();
-        bundle.putSerializable("key", listConfigurable.get(position));
+        List<ProductConfigurable> p  = adapter1.getList();
+        bundle.putSerializable("key", p.get(position));
         Intent intent = new Intent(this,IndividualItemInfo.class);
         intent.putExtra("bundle",bundle);
         startActivity(intent);
@@ -378,7 +368,14 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
         getSupportActionBar().setHomeButtonEnabled(true);
         LayoutInflater mInflater = LayoutInflater.from(this);
         View mCustomView = mInflater.inflate(R.layout.customactionbar, null);
-        ImageButton imageButton = (ImageButton) findViewById(R.id.shopCartButton);
+        ImageButton imageButton = (ImageButton)mCustomView.findViewById(R.id.shopCartButton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MasVendidos.this,CheckOutList.class);
+                startActivity(intent);
+            }
+        });
         TextView listNumber = (TextView)mCustomView.findViewById(R.id.number);
         int number = DataHolder.getNumber();
         listNumber.setText(Integer.toString(number));
@@ -405,5 +402,11 @@ public class MasVendidos extends ActionBarActivity implements AbsListView.OnScro
     public void onResume(){
         super.onResume();
         getCustomizedActionBar();
+    }
+
+
+    public void Cart(){
+        Intent intent = new Intent(this,CheckOutList.class);
+        startActivity(intent);
     }
 }

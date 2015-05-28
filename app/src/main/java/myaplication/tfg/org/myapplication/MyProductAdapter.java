@@ -53,9 +53,14 @@ public class MyProductAdapter extends BaseAdapter {
 
 
     public void addAllProduct(List<ProductConfigurable> p){
-        for(int i=0;i<p.size();i++){
-        this.productConfigurables.add(p.get(i));}
+        for(int i = 0;i<p.size();i++){
+            this.productConfigurables.add(p.get(i));
+        }
         notifyDataSetChanged();
+    }
+
+    public List<ProductConfigurable> getList(){
+        return this.productConfigurables;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {

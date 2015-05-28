@@ -199,7 +199,14 @@ public class FisrtPage extends ActionBarActivity {
         TextView listNumber = (TextView)mCustomView.findViewById(R.id.number);
         int number = DataHolder.getNumber();
         listNumber.setText(Integer.toString(number));
-     //   imageButton = (ImageButton)findViewById(R.id.shopCartButton);
+        imageButton = (ImageButton)mCustomView.findViewById(R.id.shopCartButton);
+        imageButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FisrtPage.this,CheckOutList.class);
+                startActivity(intent);
+            }
+        });
         actionBar.setCustomView(mCustomView);
         actionBar.setDisplayShowCustomEnabled(true);
     }
@@ -274,5 +281,8 @@ public class FisrtPage extends ActionBarActivity {
         super.onResume();
         getCustomizedActionBar();
     }
+
+
+
 
 }

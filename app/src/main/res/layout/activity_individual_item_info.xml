@@ -4,9 +4,10 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         >
 
         <ImageView
@@ -18,65 +19,59 @@
 
             />
 
+
         <TextView
             android:id="@+id/detail_title"
-            android:layout_below="@+id/detail_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textColor="#000"
             android:textStyle="bold"
             android:padding="5dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#FF909090"/>
 
-
-        <TextView
-            android:id="@+id/stock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/detail_title"
-            android:padding="15dp"
-            android:textSize="28dp"
-            android:textStyle="bold|italic"
-            android:shadowColor="#D8D8D8"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowRadius="2.0"/>
         <TextView
             android:id = "@+id/detail_price"
-            android:layout_below="@+id/detail_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:textColor="#000"
             android:textStyle="italic"
-            android:layout_marginTop="12dp"
-            android:padding="5dp"/>
-
+            android:padding="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#FF909090"/>
 
         <TextView
             android:id="@+id/d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="21dp"
-            android:layout_below="@+id/detail_price"
             android:textColor="#000"
             android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:padding="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="2dp"
             />
 
         <TextView
             android:id="@+id/detail_description"
-            android:layout_below="@+id/d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
             android:textColor="#000"
             android:textSize="18dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#FF909090"/>
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_marginTop="20dp"
@@ -162,5 +157,5 @@
             </LinearLayout>
 
         </RelativeLayout>
-    </RelativeLayout>
+    </LinearLayout>
 </ScrollView>
