@@ -13,7 +13,7 @@ public class DataHolder {
     private static HashMap<String,ProductConfigurable> listProductConfigurable = new HashMap<>();
     private static HashMap<String,ProductSimple> listProductSimple = new HashMap<>();
     private static int CartId = 0;
-
+    private static Customer customer = new Customer();
     public static void setNumber(int num){
         number = num;
     }
@@ -69,7 +69,7 @@ public class DataHolder {
         p.setQuantity(newTotalQuantity);
         int boughtQuantity = p.getItemNumber()+quantity;
         p.setItemNumber(boughtQuantity);
-        listProductSimple.put(productId,p);
+        listProductSimple.put(productId, p);
         listCartItems.put(productId,p);
     }
     public static void updateCanceledProductSimpleQuantity(String productId,int quantity){
@@ -83,7 +83,7 @@ public class DataHolder {
 
 
     public static void addItemToCart(ProductSimple p){
-        listCartItems.put(p.getProduct_id(),p);
+        listCartItems.put(p.getProduct_id(), p);
     }
     public static HashMap<String,ProductSimple> getListCartItems(){
         return listCartItems;
@@ -95,5 +95,13 @@ public class DataHolder {
 
     public static void setCartId(int num){
         CartId = num;
+    }
+
+    public static void setCustomer(Customer c){
+        customer = c;
+    }
+
+    public static Customer getCustomer(){
+        return customer;
     }
 }

@@ -2,9 +2,13 @@ package myaplication.tfg.org.myapplication;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ExpandableListActivity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
+import android.preference.DialogPreference;
 import android.view.View.OnClickListener;
 import android.content.Intent;
 import android.support.v4.view.GravityCompat;

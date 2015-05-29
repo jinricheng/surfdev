@@ -119,6 +119,18 @@ ADDED from AndroidManifest.xml:59:9
 		ADDED from AndroidManifest.xml:62:13
 	android:name
 		ADDED from AndroidManifest.xml:60:13
+activity#myaplication.tfg.org.myapplication.CustomerInfo
+ADDED from AndroidManifest.xml:64:9
+	android:theme
+		ADDED from AndroidManifest.xml:66:13
+	android:name
+		ADDED from AndroidManifest.xml:65:13
+activity#myaplication.tfg.org.myapplication.AddressInfo
+ADDED from AndroidManifest.xml:68:9
+	android:theme
+		ADDED from AndroidManifest.xml:70:13
+	android:name
+		ADDED from AndroidManifest.xml:69:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:22.0.0:20:5

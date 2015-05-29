@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="myaplication.tfg.org.myapplication.AddressInfo">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Shipping Info"
+        android:textSize ="28sp"
+        android:textColor = "#FF4000"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"/>
+
+
+    <EditText
+        android:id="@+id/street"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Street"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:inputType="textCapCharacters" >
+        <requestFocus />
+    </EditText>
+
+    <AutoCompleteTextView
+        android:id="@+id/Country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/country"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:completionThreshold="1">
+        <requestFocus />
+    </AutoCompleteTextView>
+
+
+        <AutoCompleteTextView
+            android:id="@+id/Cities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Your City"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:completionThreshold="1">
+            <requestFocus />
+        </AutoCompleteTextView>
+
+    <EditText
+        android:id="@+id/postCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="PostCode"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:inputType="text" >
+        <requestFocus />
+    </EditText>
+
+        <EditText
+            android:id="@+id/telefon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="telephoneNumber"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:inputType="text" >
+            <requestFocus />
+        </EditText>
+
+    <Button
+        android:id="@+id/continueShipment"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_button"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="Choose payment"
+        android:textSize="20dp"/>
+
+    </LinearLayout>
+</RelativeLayout>

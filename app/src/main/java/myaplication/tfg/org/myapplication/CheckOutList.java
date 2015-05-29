@@ -1,6 +1,7 @@
 package myaplication.tfg.org.myapplication;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
@@ -37,7 +38,8 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 public class CheckOutList extends ActionBarActivity {
-
+    String NAMESPACE = "urn:Magento";
+    String URL = "http://gonegocio.es/index.php/api/v2_soap/";
     private List<ProductSimple> checkOutItemsList;
     private SoapSerializationEnvelope env;
     private HttpTransportSE androidHttpTransport;
@@ -56,6 +58,8 @@ public class CheckOutList extends ActionBarActivity {
         setContentView(R.layout.activity_check_out_list);
         initCusmizedActionBar();
         total = (TextView)findViewById(R.id.total_Amount);
+        continueButton = (Button)findViewById(R.id.continuebutton);
+
         obtainCheckOutItemList();
         continueListener();
 
@@ -64,7 +68,7 @@ public class CheckOutList extends ActionBarActivity {
     }
 
     private void continueListener() {
-        continueButton = (Button)findViewById(R.id.continuebutton);
+
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,6 +137,44 @@ public class CheckOutList extends ActionBarActivity {
        });
     }
 
+    /*remove the item in the shop cart*/
+    private void removeDataFromShoppingCart(ProductSimple productSimple) throws IOException, XmlPullParserException {
+        SoapObject SingleProduct = new SoapObject(NAMESPACE, "shoppingCartProductEntity");
+        PropertyInfo pi = new PropertyInfo();
+        pi.setName("product_id");
+        pi.setValue(Integer.parseInt(productSimple.getProduct_id()));
+        pi.setType(Integer.class);
+        SingleProduct.addProperty(pi);
+
+        pi = new PropertyInfo();
+        pi.setName("sku");
+        pi.setValue(productSimple.getSku());
+        pi.setType(String.class);
+        SingleProduct.addProperty(pi);
+
+        pi = new PropertyInfo();
+        pi.setName("qty");
+        pi.setValue(productSimple.getQuantity());
+        pi.setType(Double.class);
+        SingleProduct.addProperty(pi);
+        SoapObject EntityArray = new SoapObject(NAMESPACE, "shoppingCartProductEntityArray");
+        EntityArray.addProperty("products", SingleProduct);
+
+        request = new SoapObject(NAMESPACE, "shoppingCartProductRemove");
+        request.addProperty("sessionId", sessionId);
+        request.addProperty("quoteId", cartId);
+        request.addProperty("products", EntityArray);
+        env.setOutputSoapObject(request);
+        androidHttpTransport.call("", env);
+        boolean ok = (boolean) env.getResponse();
+
+        if (ok == true) {
+            System.out.println("remove product correctly");
+        }
+        getRetriveInformation();
+    }
+
+
     private void removeDataHolderItem(int position) {
         DataHolder.setNumber(DataHolder.getNumber() - 1);
         ProductSimple p = checkOutItemsList.get(position);
@@ -152,7 +194,7 @@ public class CheckOutList extends ActionBarActivity {
 
     }
 
-
+    /*class of create a shopcart to magento using api*/
     private class shopCart extends AsyncTask<String, Float, String>{
         ProgressDialog pDialog;
         String NAMESPACE = "urn:Magento";
@@ -225,6 +267,7 @@ public class CheckOutList extends ActionBarActivity {
     }
 
 
+    /*add the selected items to the created shop cart of magento using api*/
     private class addItems extends AsyncTask<String, Float, String> {
         ProgressDialog pDialog;
         String NAMESPACE = "urn:Magento";
@@ -263,6 +306,22 @@ public class CheckOutList extends ActionBarActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             pDialog.dismiss();
+            if(checkOutItemsList.size()==0){
+                new SweetAlertDialog(CheckOutList.this, SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Empty Cart")
+                        .setContentText("add some items please XD..")
+                        .setConfirmText("Ok")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                sDialog.dismiss();
+                            }
+                        })
+                        .show();
+            }
+            else{
+                Intent intent = new Intent(CheckOutList.this,CustomerInfo.class);
+                startActivity(intent);}
         }
 
         private void addToCart() throws IOException, XmlPullParserException {
@@ -303,18 +362,18 @@ public class CheckOutList extends ActionBarActivity {
             getRetriveInformation();
         }
 
-        private void getRetriveInformation() throws IOException, XmlPullParserException {
-            request = new SoapObject(NAMESPACE,"shoppingCartProductList");
-            request.addProperty("sessionId", sessionId);
-            request.addProperty("quoteId", cartId);
-            env.setOutputSoapObject(request);
-            androidHttpTransport.call("", env);
-            SoapObject r  = (SoapObject)env.getResponse();
-            Log.d("retriveList",r.toString());
 
-        }
     }
+    private void getRetriveInformation() throws IOException, XmlPullParserException {
+        request = new SoapObject(NAMESPACE,"shoppingCartProductList");
+        request.addProperty("sessionId", sessionId);
+        request.addProperty("quoteId", cartId);
+        env.setOutputSoapObject(request);
+        androidHttpTransport.call("", env);
+        SoapObject r  = (SoapObject)env.getResponse();
+        Log.d("retriveList",r.toString());
 
+    }
     private void initCusmizedActionBar() {
         getCustomizedActionBar();
 
