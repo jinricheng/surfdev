@@ -4,11 +4,11 @@ package myaplication.tfg.org.myapplication;
  * Created by jin on 2015/5/29.
  */
 public class Address {
-    private String streetName;
-    private String code;
-    private String telefon;
-    private String countryName;
-    private String cityName;
+    private String streetName="";
+    private String code="";
+    private String telefon="";
+    private String countryName="";
+    private String cityName="";
 
     public Address(){
     }

@@ -71,7 +71,8 @@
         </activity>
         <activity
             android:name=".ShippingAndPaymentMethod"
-            android:label="@string/title_activity_shipping_and_payment_method" >
+            android:label="@string/title_activity_shipping_and_payment_method"
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 

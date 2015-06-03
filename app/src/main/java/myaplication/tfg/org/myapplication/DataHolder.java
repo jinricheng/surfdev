@@ -14,6 +14,9 @@ public class DataHolder {
     private static HashMap<String,ProductSimple> listProductSimple = new HashMap<>();
     private static int CartId = 0;
     private static Customer customer = new Customer();
+    private static Cart cart ;
+
+
     public static void setNumber(int num){
         number = num;
     }
@@ -76,6 +79,7 @@ public class DataHolder {
         ProductSimple p = listProductSimple.get(productId);
         int totalQuanitity = p.getQuantity();
         totalQuanitity = totalQuanitity+quantity;
+        p.setItemNumber(p.getItemNumber()-quantity);
         p.setQuantity(totalQuanitity);
         listProductSimple.put(p.getProduct_id(),p);
         listCartItems.remove(p.getProduct_id());
@@ -103,5 +107,13 @@ public class DataHolder {
 
     public static Customer getCustomer(){
         return customer;
+    }
+
+    public static void setCart(Cart c){
+         cart = c;
+    }
+
+    public static Cart getCart(){
+        return cart;
     }
 }

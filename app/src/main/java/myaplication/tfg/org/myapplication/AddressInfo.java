@@ -55,11 +55,13 @@ public class AddressInfo extends ActionBarActivity {
     private HttpTransportSE androidHttpTransport;
     private SoapObject request;
     private SoapObject r;
+    private Cart cart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_info);
         getCustomizedActionBar();
+        cart =DataHolder.getCart();
         initialVariable();
         initialAdapters();
         continuePayment = (Button)findViewById(R.id.continueShipment);
@@ -68,6 +70,8 @@ public class AddressInfo extends ActionBarActivity {
             public void onClick(View view) {
                 createAddress();
                 new addCustomerAddress().execute();
+                Intent intent = new Intent(AddressInfo.this,ShippingAndPaymentMethod.class);
+                startActivity(intent);
             }
         });
 
@@ -84,6 +88,7 @@ public class AddressInfo extends ActionBarActivity {
     }
 
     private void initialAdapters() {
+        address = new Address();
         countryAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,countries);
         cityAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,cities);
         country.setAdapter(countryAdapter);
@@ -113,7 +118,6 @@ public class AddressInfo extends ActionBarActivity {
     }
 
     private void createAddress() {
-        address = new Address();
         address.setStreetName(street.getText().toString());
         address.setCountryName(countryName);
         address.setCityName(cityName);
@@ -124,9 +128,6 @@ public class AddressInfo extends ActionBarActivity {
 
     private class addCustomerAddress extends AsyncTask<String,Float,String>{
         ProgressDialog pDialog;
-        String NAMESPACE = "urn:Magento";
-        String URL = "http://gonegocio.es/index.php/api/v2_soap/";
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -144,8 +145,7 @@ public class AddressInfo extends ActionBarActivity {
         @Override
         protected String doInBackground(String... strings) {
             try {
-                setupSessionLogin();
-                addAddress();
+                cart.addAddress(address);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -161,111 +161,11 @@ public class AddressInfo extends ActionBarActivity {
             super.onPostExecute(result);
             pDialog.dismiss();
 
-        }
 
-        private void setupSessionLogin() throws IOException, XmlPullParserException {
-            env = new SoapSerializationEnvelope(
-                    SoapEnvelope.VER11);
-            env.dotNet = false;
-            env.xsd = SoapSerializationEnvelope.XSD;
-            env.enc = SoapSerializationEnvelope.ENC;
-            request = new SoapObject(NAMESPACE, "login");
-            request.addProperty("username", "jin");
-            request.addProperty("apiKey", "1234567890");
-            env.setOutputSoapObject(request);
-            androidHttpTransport = new HttpTransportSE(URL);
-            androidHttpTransport.call("", env);
-            Object result = env.getResponse();
-            sessionId = (String) result;
-        }
-
-        private void addAddress() throws IOException, XmlPullParserException {
-            SoapObject addressInfo = new SoapObject(NAMESPACE, "shoppingCartCustomerAddressEntity");
-            Customer customer = DataHolder.getCustomer();
-            PropertyInfo pi = new PropertyInfo();
-            System.out.println(address.getCityName()+" "+address.getStreetName()+" "+address.getCountryName());
-            System.out.println(customer.getFirstName()+" "+customer.getLastName()+" "+customer.getEmailAdress());
-            pi.setName("mode");
-            pi.setValue("shipping");
-            pi.setType(String.class);
-            addressInfo.addProperty(pi);
-
-            pi = new PropertyInfo();
-            pi.setName("firstname");
-            pi.setValue(customer.getFirstName());
-            pi.setType(String.class);
-            addressInfo.addProperty(pi);
-
-            pi = new PropertyInfo();
-            pi.setName("lastname");
-            pi.setValue(customer.getFirstName());
-            pi.setType(String.class);
-            addressInfo.addProperty(pi);
-
-            pi = new PropertyInfo();
-            pi.setName("street");
-            pi.setValue(address.getStreetName());
-            pi.setType(String.class);
-            addressInfo.addProperty(pi);
-
-            pi = new PropertyInfo();
-            pi.setName("city");
-            pi.setValue(address.getCityName());
-            pi.setType(String.class);
-            addressInfo.addProperty(pi);
-
-            pi = new PropertyInfo();
-            pi.setName("postcode");
-            pi.setValue(address.getCode());
-            pi.setType(String.class);
-            addressInfo.addProperty(pi);
-
-            pi = new PropertyInfo();
-            pi.setName("country_id");
-            pi.setValue(address.getCountryName());
-            pi.setType(String.class);
-            addressInfo.addProperty(pi);
-
-            pi = new PropertyInfo();
-            pi.setName("telephone");
-            pi.setValue(address.getTelefon());
-            pi.setType(String.class);
-            addressInfo.addProperty(pi);
-
-            pi = new PropertyInfo();
-            pi.setName("is_default_billing");
-            pi.setValue(0);
-            pi.setType(Integer.class);
-            addressInfo.addProperty(pi);
-
-            pi = new PropertyInfo();
-            pi.setName("is_default_shipping");
-            pi.setValue(0);
-            pi.setType(Integer.class);
-            addressInfo.addProperty(pi);
-
-            SoapObject EntityArray = new SoapObject(NAMESPACE, "shoppingCartProductEntityArray");
-            EntityArray.addProperty("customer", addressInfo);
-            request = new SoapObject(NAMESPACE, "shoppingCartCustomerAddresses");
-            request.addProperty("sessionId", sessionId);
-            request.addProperty("quoteId", DataHolder.getCartId());
-            request.addProperty("customer", EntityArray);
-
-            env.setOutputSoapObject(request);
-            androidHttpTransport.call("", env);
-            boolean ok = (boolean) env.getResponse();
-            if (ok == true) {
-                System.out.println("add address correctly");
-            }
         }
 
 
     }
-
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

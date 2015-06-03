@@ -75,6 +75,11 @@
             android:name="myaplication.tfg.org.myapplication.AddressInfo"
             android:theme="@style/AppTheme" >
         </activity>
+        <activity
+            android:name="myaplication.tfg.org.myapplication.ShippingAndPaymentMethod"
+            android:label="@string/title_activity_shipping_and_payment_method"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

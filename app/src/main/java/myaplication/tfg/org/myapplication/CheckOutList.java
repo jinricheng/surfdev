@@ -47,6 +47,7 @@ public class CheckOutList extends ActionBarActivity {
     private SoapObject r;
     private String sessionId;
     private int cartId;
+    private Cart cart;
     private ListView listItems;
     private CheckOutItemsAdapter adapter;
     private TextView total;
@@ -122,6 +123,7 @@ public class CheckOutList extends ActionBarActivity {
                                totalAmount = getTotalAmount();
                                total.setText(totalAmount);
                                adapter.notifyDataSetChanged();
+
                                sDialog.dismiss();
                            }
                        })
@@ -135,43 +137,6 @@ public class CheckOutList extends ActionBarActivity {
                return false;
            }
        });
-    }
-
-    /*remove the item in the shop cart*/
-    private void removeDataFromShoppingCart(ProductSimple productSimple) throws IOException, XmlPullParserException {
-        SoapObject SingleProduct = new SoapObject(NAMESPACE, "shoppingCartProductEntity");
-        PropertyInfo pi = new PropertyInfo();
-        pi.setName("product_id");
-        pi.setValue(Integer.parseInt(productSimple.getProduct_id()));
-        pi.setType(Integer.class);
-        SingleProduct.addProperty(pi);
-
-        pi = new PropertyInfo();
-        pi.setName("sku");
-        pi.setValue(productSimple.getSku());
-        pi.setType(String.class);
-        SingleProduct.addProperty(pi);
-
-        pi = new PropertyInfo();
-        pi.setName("qty");
-        pi.setValue(productSimple.getQuantity());
-        pi.setType(Double.class);
-        SingleProduct.addProperty(pi);
-        SoapObject EntityArray = new SoapObject(NAMESPACE, "shoppingCartProductEntityArray");
-        EntityArray.addProperty("products", SingleProduct);
-
-        request = new SoapObject(NAMESPACE, "shoppingCartProductRemove");
-        request.addProperty("sessionId", sessionId);
-        request.addProperty("quoteId", cartId);
-        request.addProperty("products", EntityArray);
-        env.setOutputSoapObject(request);
-        androidHttpTransport.call("", env);
-        boolean ok = (boolean) env.getResponse();
-
-        if (ok == true) {
-            System.out.println("remove product correctly");
-        }
-        getRetriveInformation();
     }
 
 
@@ -195,10 +160,8 @@ public class CheckOutList extends ActionBarActivity {
     }
 
     /*class of create a shopcart to magento using api*/
-    private class shopCart extends AsyncTask<String, Float, String>{
+    private class shopCart extends AsyncTask<String, Float, String> {
         ProgressDialog pDialog;
-        String NAMESPACE = "urn:Magento";
-        String URL = "http://gonegocio.es/index.php/api/v2_soap/";
 
         @Override
         protected void onPreExecute() {
@@ -217,19 +180,16 @@ public class CheckOutList extends ActionBarActivity {
         @Override
         protected String doInBackground(String... strings) {
             try {
-                setupSessionLogin();
-                if(DataHolder.getCartId() ==0){
-                createShopCart();}
-                else{
-                    cartId = DataHolder.getCartId();
+                cart = new Cart();
+                if (cart.getCartId() == 0) {
+                    cart.createShopCart();
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (XmlPullParserException e) {
                 e.printStackTrace();
             }
-
+            System.out.println("Cart Id  " + Integer.toString(cart.getCartId()));
             return "executed";
         }
 
@@ -238,41 +198,14 @@ public class CheckOutList extends ActionBarActivity {
             super.onPostExecute(result);
             pDialog.dismiss();
         }
-
-
-        private void setupSessionLogin() throws IOException, XmlPullParserException {
-            env = new SoapSerializationEnvelope(
-                    SoapEnvelope.VER11);
-            env.dotNet = false;
-            env.xsd = SoapSerializationEnvelope.XSD;
-            env.enc = SoapSerializationEnvelope.ENC;
-            request = new SoapObject(NAMESPACE, "login");
-            request.addProperty("username", "jin");
-            request.addProperty("apiKey", "1234567890");
-            env.setOutputSoapObject(request);
-            androidHttpTransport = new HttpTransportSE(URL);
-            androidHttpTransport.call("", env);
-            Object result = env.getResponse();
-            sessionId = (String) result;
-        }
-
-        private void createShopCart() throws IOException, XmlPullParserException {
-             request = new SoapObject(NAMESPACE,"shoppingCartCreate");
-             request.addProperty("sessionId", sessionId);
-             env.setOutputSoapObject(request);
-             androidHttpTransport.call("", env);
-             cartId = (Integer)env.getResponse();
-             DataHolder.setCartId(cartId);
-        }
     }
+
+
 
 
     /*add the selected items to the created shop cart of magento using api*/
     private class addItems extends AsyncTask<String, Float, String> {
         ProgressDialog pDialog;
-        String NAMESPACE = "urn:Magento";
-        String URL = "http://gonegocio.es/index.php/api/v2_soap/";
-
 
         @Override
         protected void onPreExecute() {
@@ -291,8 +224,8 @@ public class CheckOutList extends ActionBarActivity {
         @Override
         protected String doInBackground(String... strings) {
             try {
-                addToCart();
-
+                cart.addToCart(checkOutItemsList);
+                cart.getRetriveInformation();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (XmlPullParserException e) {
@@ -321,59 +254,14 @@ public class CheckOutList extends ActionBarActivity {
             }
             else{
                 Intent intent = new Intent(CheckOutList.this,CustomerInfo.class);
-                startActivity(intent);}
-        }
+                DataHolder.setCart(cart);
+                startActivity(intent);
 
-        private void addToCart() throws IOException, XmlPullParserException {
-            for(ProductSimple p : checkOutItemsList) {
-                SoapObject SingleProduct = new SoapObject(NAMESPACE, "shoppingCartProductEntity");
-                PropertyInfo pi = new PropertyInfo();
-                pi.setName("product_id");
-                pi.setValue(Integer.parseInt(p.getProduct_id()));
-                pi.setType(Integer.class);
-                SingleProduct.addProperty(pi);
-
-                pi = new PropertyInfo();
-                pi.setName("sku");
-                pi.setValue(p.getSku());
-                pi.setType(String.class);
-                SingleProduct.addProperty(pi);
-
-                pi = new PropertyInfo();
-                pi.setName("qty");
-                pi.setValue(p.getQuantity());
-                pi.setType(Double.class);
-                SingleProduct.addProperty(pi);
-                SoapObject EntityArray = new SoapObject(NAMESPACE, "shoppingCartProductEntityArray");
-                EntityArray.addProperty("products", SingleProduct);
-
-                request = new SoapObject(NAMESPACE, "shoppingCartProductAdd");
-                request.addProperty("sessionId", sessionId);
-                request.addProperty("quoteId", cartId);
-                request.addProperty("products", EntityArray);
-                env.setOutputSoapObject(request);
-                androidHttpTransport.call("", env);
-                boolean ok = (boolean) env.getResponse();
-
-                if (ok == true) {
-                    System.out.println("add product correctly");
-                }
             }
-            getRetriveInformation();
         }
 
-
     }
-    private void getRetriveInformation() throws IOException, XmlPullParserException {
-        request = new SoapObject(NAMESPACE,"shoppingCartProductList");
-        request.addProperty("sessionId", sessionId);
-        request.addProperty("quoteId", cartId);
-        env.setOutputSoapObject(request);
-        androidHttpTransport.call("", env);
-        SoapObject r  = (SoapObject)env.getResponse();
-        Log.d("retriveList",r.toString());
 
-    }
     private void initCusmizedActionBar() {
         getCustomizedActionBar();
 
@@ -400,9 +288,6 @@ public class CheckOutList extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
