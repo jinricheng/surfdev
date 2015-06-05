@@ -27,4 +27,5 @@ dependencies {
     compile 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
     compile 'cn.pedant.sweetalert:library:1.2'
     compile files('libs/ksoap2-android-assembly-3.0.0-jar-with-dependencies.jar')
+    compile files('libs/PayPalAndroidSDK-2.9.5.jar')
 }

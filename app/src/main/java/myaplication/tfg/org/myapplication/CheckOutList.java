@@ -22,8 +22,6 @@ import android.widget.TextView;
 import com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype;
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
 
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
@@ -35,6 +33,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import myaplication.tfg.org.Adapters.CheckOutItemsAdapter;
+import myaplication.tfg.org.models.Cart;
+import myaplication.tfg.org.models.ProductSimple;
 
 
 public class CheckOutList extends ActionBarActivity {
@@ -84,7 +85,6 @@ public class CheckOutList extends ActionBarActivity {
         if(checkOutItemsList.size()==0){
             noItemWarning();
         }
-        new shopCart().execute();
         listItems = (ListView)findViewById(R.id.check_out_list);
         adapter = new CheckOutItemsAdapter(this,checkOutItemsList,R.layout.check_outl_list_items);
         listItems.setAdapter(adapter);
@@ -95,13 +95,13 @@ public class CheckOutList extends ActionBarActivity {
 
     private String getTotalAmount() {
         Double totalAmount = 0.0;
-        DecimalFormat formatter = new DecimalFormat("#,###.00");
+        DecimalFormat formatter = new DecimalFormat("#,###,##0.00");
         for(ProductSimple p : checkOutItemsList){
             String priceIndividual = p.getPrice();
             priceIndividual = priceIndividual.replaceAll(",",".");
             totalAmount = totalAmount+Double.parseDouble(priceIndividual)*p.getItemNumber();
         }
-        return "Total: "+formatter.format(totalAmount)+" EUR";
+        return "Total: "+formatter.format(totalAmount)+"\u20AC";
     }
 
     private void listenItems() {
@@ -159,48 +159,6 @@ public class CheckOutList extends ActionBarActivity {
 
     }
 
-    /*class of create a shopcart to magento using api*/
-    private class shopCart extends AsyncTask<String, Float, String> {
-        ProgressDialog pDialog;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Log.d("Hi", "Download Commencing");
-            pDialog = new ProgressDialog(CheckOutList.this);
-            String message = "Waiting...";
-            SpannableString ss2 = new SpannableString(message);
-            ss2.setSpan(new RelativeSizeSpan(2f), 0, ss2.length(), 0);
-            ss2.setSpan(new ForegroundColorSpan(Color.BLACK), 0, ss2.length(), 0);
-            pDialog.setMessage(ss2);
-            pDialog.setCancelable(false);
-            pDialog.show();
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                cart = new Cart();
-                if (cart.getCartId() == 0) {
-                    cart.createShopCart();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (XmlPullParserException e) {
-                e.printStackTrace();
-            }
-            System.out.println("Cart Id  " + Integer.toString(cart.getCartId()));
-            return "executed";
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            pDialog.dismiss();
-        }
-    }
-
-
 
 
     /*add the selected items to the created shop cart of magento using api*/
@@ -224,8 +182,13 @@ public class CheckOutList extends ActionBarActivity {
         @Override
         protected String doInBackground(String... strings) {
             try {
+                cart = new Cart();
+                cart.setupSessionLogin();
+                if (cart.getCartId() == 0) {
+                    cart.createShopCart();
+                }
                 cart.addToCart(checkOutItemsList);
-                cart.getRetriveInformation();
+
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (XmlPullParserException e) {
@@ -253,6 +216,7 @@ public class CheckOutList extends ActionBarActivity {
                         .show();
             }
             else{
+                cart.setListItems(checkOutItemsList);
                 Intent intent = new Intent(CheckOutList.this,CustomerInfo.class);
                 DataHolder.setCart(cart);
                 startActivity(intent);

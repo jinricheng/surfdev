@@ -60,7 +60,6 @@ public class FisrtPage extends ActionBarActivity {
         initMainListView();
         initCusmizedActionBar();
         initNavigationList();
-
     }
 
     private void initNavigationList() {
@@ -168,8 +167,8 @@ public class FisrtPage extends ActionBarActivity {
     private void loadContent3(int position){
           switch (position){
               case 0:
-                  Intent intent = new Intent(this,MasVendidos.class);
-                  intent.putExtra("name","Offers");
+                  Intent intent = new Intent(this,Sample.class);
+                //  intent.putExtra("name","Offers");
                   startActivity(intent);
                   break;
               case 1:
@@ -237,7 +236,7 @@ public class FisrtPage extends ActionBarActivity {
 
 
     public void Cart(View view){
-        Intent intent = new Intent(this,soapTest.class);
+        Intent intent = new Intent(this,CheckOutList.class);
         startActivity(intent);
     }
 

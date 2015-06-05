@@ -31,6 +31,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import myaplication.tfg.org.models.Customer;
 
 
 public class CustomerInfo extends ActionBarActivity {
@@ -179,7 +180,7 @@ public class CustomerInfo extends ActionBarActivity {
 
             if (ok == true) {
                 System.out.println("add customer correctly");
-                DataHolder.setCustomer(customer);
+                DataHolder.getCart().setCustomer(customer);
                 Intent intent = new Intent(CustomerInfo.this,AddressInfo.class);
                 startActivity(intent);
             }

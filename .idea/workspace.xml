@@ -9,15 +9,85 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bd6bcb2-9c0d-4729-8383-adae45f2330c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Cart.java" />
+    <list default="true" id="5bd6bcb2-9c0d-4729-8383-adae45f2330c" name="Default" comment="shipping, payment PAYPAL done">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/CheckMoney.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/CreditCard.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/PayPal.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/PayPalAndroidSDK_2_9_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Payment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/PaymentMethodInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_payment_method_info.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_payment_method_info.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_paypal_example.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_sample.xml" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\FragmentOferta$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\FragmentOferta$DownLoad.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\FragmentOferta$productDetailClickListener.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\FragmentOferta.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\MyProductAdapter$ViewHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\MyProductAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\News$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\News$productDetailClickListener.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\News.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\Product.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\ProductConfigurable.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\ProductSimple.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\WebService.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\shopCart.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\soapTest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\soapTest$DownLoad.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\myaplication\tfg\org\myapplication\soapTest.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\Base64Coder.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\IXMLRPCSerializer.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\MethodCall.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\Tag.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\XMLRPCClient.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\XMLRPCCommon.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\XMLRPCException.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\XMLRPCFault.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\XMLRPCSerializable.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\XMLRPCSerializer.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\classes\debug\org\xmlrpc\android\XMLRPCServer.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\res\debug\layout\activity_news.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\res\debug\layout\activity_shop_cart.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\res\debug\layout\activity_soap_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\build\intermediates\res\debug\layout\oferta_fragment.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\FragmentOferta.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\News.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\WebService.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\soapTest.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\Base64Coder.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\IXMLRPCSerializer.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\MethodCall.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\Tag.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\XMLRPCClient.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\XMLRPCCommon.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\XMLRPCException.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\XMLRPCFault.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\XMLRPCSerializable.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\XMLRPCSerializer.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\java\org\xmlrpc\android\XMLRPCServer.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\res\layout\activity_news.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\res\layout\activity_soap_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\TFGAplication\tfg\app\src\main\res\layout\oferta_fragment.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FisrtPage$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FisrtPage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FisrtPage$firstLevelItemsClickListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FisrtPage$firstLevelItemsClickListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FisrtPage$listPrincipalItemClickListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FisrtPage$listPrincipalItemClickListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FisrtPage$secondLevelMenuItemsClickListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FisrtPage$secondLevelMenuItemsClickListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FisrtPage.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FisrtPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FragmentOferta$DownLoad.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FragmentOferta$DownLoad.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FragmentOferta.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/FragmentOferta.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$DownLoadSimpleProduct.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo$DownLoadSimpleProduct.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/IndividualItemInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos$DownLoad.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos$DownLoad.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos$productDetailClickListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos$productDetailClickListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MasVendidos.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MyProductAdapter.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/MyProductAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/News.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/News.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/R$integer.class" />
@@ -37,33 +107,44 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/shopCart.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/shopCart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/soapTest.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/myaplication/tfg/org/myapplication/soapTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Address.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Address.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/AddressInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/AddressInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CheckOutList.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CheckOutList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CustomerInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CustomerInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/DataHolder.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/DataHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/FisrtPage.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/FisrtPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/MasVendidos.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/MasVendidos.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/myaplication/tfg/org/myapplication/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/myaplication/tfg/org/myapplication/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingAndPaymentMethod.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingAndPaymentMethod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_check_out_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_check_out_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_customer_info.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_customer_info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_and_payment_method.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_and_payment_method.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_address_info.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_address_info.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_shipping_and_payment_method.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_shipping_and_payment_method.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable/round_button.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable/round_button.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/round_button.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/round_button.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\Address.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Address.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\Cart.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Cart.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\CheckOutItemsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/Adapters/CheckOutItemsAdapter.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\Customer.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Customer.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\MyProductAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/Adapters/MyProductAdapter.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\Product.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Product.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\ProductConfigurable.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/ProductConfigurable.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\ProductSimple.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/ProductSimple.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\ShippingAndPaymentMethod.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingMethodInfo.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\StringArraySerializer.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/StringArraySerializer.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\java\myaplication\tfg\org\myapplication\shopCart.java" afterPath="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Sample.java" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\res\layout\activity_shipping_and_payment_method.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_method.xml" />
+      <change type="MOVED" beforePath="D:\TFGAplication\tfg\app\src\main\res\layout\activity_shop_cart.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sample.xml" />
     </list>
     <ignored path="tfg.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,76 +160,57 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="tfg" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+            </PATH>
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="tfg" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ShippingAndPaymentMethod.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingAndPaymentMethod.java">
+      <file leaf-file-name="ShippingMethodInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingMethodInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67151767">
-              <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-              <folding>
-                <element signature="e#4747#5008#0" expanded="true" />
-                <element signature="e#5007#5008#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndividualItemInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java">
+      <file leaf-file-name="PaymentMethodInfo.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/PaymentMethodInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="616" column="46" selection-start-line="616" selection-start-column="46" selection-end-line="616" selection-end-column="46" />
-              <folding>
-                <element signature="e#25521#26179#0" expanded="true" />
-                <element signature="e#26178#26179#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CheckOutList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CheckOutList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="256" column="41" selection-start-line="256" selection-start-column="41" selection-end-line="256" selection-end-column="41" />
-              <folding>
-                <element signature="e#2315#2476#0" expanded="true" />
-                <element signature="e#2475#2476#0" expanded="true" />
-                <element signature="e#4221#4798#0" expanded="true" />
-                <element signature="e#4797#4798#0" expanded="true" />
-                <element signature="e#4847#5126#0" expanded="true" />
-                <element signature="e#5125#5126#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Address.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Address.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-              <folding>
-                <element signature="e#692#693#0" expanded="true" />
-                <element signature="e#728#729#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cart.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Cart.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="249" column="29" selection-start-line="249" selection-start-column="29" selection-end-line="249" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.08108108">
+              <caret line="346" column="32" selection-start-line="346" selection-start-column="32" selection-end-line="346" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1991#1992#0" expanded="true" />
-                <element signature="e#2025#2026#0" expanded="true" />
+                <element signature="e#3753#4306#0" expanded="true" />
+                <element signature="e#4305#4306#0" expanded="true" />
+                <element signature="e#4408#4945#0" expanded="true" />
+                <element signature="e#4944#4945#0" expanded="true" />
+                <element signature="e#5036#5476#0" expanded="true" />
+                <element signature="e#5475#5476#0" expanded="true" />
+                <element signature="e#9082#9439#0" expanded="true" />
+                <element signature="e#9438#9439#0" expanded="true" />
+                <element signature="e#13050#13058#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,6 +221,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -1135,7 +1198,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4296538766725" />
+        <entry key="$PROJECT_DIR$" value="4297765594743" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1308,6 +1371,7 @@
                             <option value="D:/jdk/extras/android/m2repository/com/android/support/support-v4/22.0.0/support-v4-22.0.0.aar" />
                             <option value="D:/jdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar" />
                             <option value="$MODULE_DIR$/libs/ksoap2-android-assembly-3.0.0-jar-with-dependencies.jar" />
+                            <option value="$MODULE_DIR$/libs/PayPalAndroidSDK-2.9.5.jar" />
                             <option value="$MODULE_DIR$/libs/urlimageviewhelper-1.0.4.jar" />
                           </list>
                         </option>
@@ -1438,18 +1502,38 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/FisrtPage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Address.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/shippingMethod.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_and_payment_method.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_check_out_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_customer_info.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/DataHolder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CheckOutList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_and_payment_method.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingAndPaymentMethod.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/MyProductAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CheckOutItemsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_paypal_example.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/paypalExample.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_sample.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_method.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/round_button.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CustomerInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/AddressInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Cart.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingAndPaymentMethod.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Sample.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Payment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/CheckMoney.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/CreditCard.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/PayPal.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingMethodInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CheckOutList.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Cart.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/DataHolder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/PaymentMethodInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/FisrtPage.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_address_info.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_payment_method_info.xml" />
       </list>
     </option>
   </component>
@@ -1492,6 +1576,83 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PayPalAndroidSDK-2.9.5.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1542,6 +1703,24 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
@@ -1560,7 +1739,51 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="myapplication" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tfg" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1580,10 +1803,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1594,8 +1813,42 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="4_65_720p_Galaxy_API_17" />
     <property name="FullScreen" value="false" />
     <property name="SearchEverywhereHistoryKey" value="shippingM&#9;FILE&#9;file://D:/TFGAplication/tfg/app/src/main/java/myaplication/tfg/org/myapplication/shippingMethod.java" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/PayPal-Android-SDK-master" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="android.template.packageName">
+      <recent name="myaplication.tfg.org.myapplication" />
+    </key>
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
+    <configuration default="false" name="paypalExampleActivity" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
+      <module name="app" />
+      <option name="ACTIVITY_CLASS" value="myaplication.tfg.org.myapplication.paypalExampleActivity" />
+      <option name="MODE" value="specific_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_SELECTION_ERROR" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -1699,6 +1952,7 @@
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/app/libs/PayPalAndroidSDK-2.9.5.jar" />
       <envs />
       <method />
     </configuration>
@@ -1762,9 +2016,15 @@
       <option name="INVALID_CLOUD_SELECTION_ERROR" value="" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Android Application.app" />
+      <item index="1" class="java.lang.String" itemvalue="Android Application.paypalExampleActivity" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Android Application.paypalExampleActivity" />
+      </list>
+    </recent_temporary>
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="HTML_FILE_NAME" />
@@ -1789,6 +2049,13 @@
       <option name="number" value="Default" />
       <updated>1433173060436</updated>
     </task>
+    <task id="LOCAL-00001" summary="refactoring shipinfo payment..-">
+      <created>1433359848923</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1433359848923</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1800,21 +2067,21 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3992095" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969153" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32938075" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25128534" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1827,15 +2094,15 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1848,8 +2115,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32806325" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1864,20 +2131,39 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactoring shipinfo payment..-" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring shipinfo payment..-" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingAndPaymentMethod.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Cart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="155" column="48" selection-start-line="155" selection-start-column="48" selection-end-line="155" selection-end-column="48" />
-          <folding />
+          <caret line="249" column="29" selection-start-line="249" selection-start-column="29" selection-end-line="249" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2386#2387#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/shippingMethod.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingMethodInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="155" column="48" selection-start-line="155" selection-start-column="48" selection-end-line="155" selection-end-column="48" />
+          <folding>
+            <element signature="e#2367#2618#0" expanded="true" />
+            <element signature="e#2617#2618#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/shippingMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
@@ -1894,51 +2180,53 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_check_out_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_customer_info.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_customer_info.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CheckOutItemsAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/Adapters/CheckOutItemsAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_and_payment_method.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_method.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="45" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingAndPaymentMethod.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingMethodInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="e#2367#2618#0" expanded="true" />
+            <element signature="e#2617#2618#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1958,161 +2246,112 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_individual_item_info.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="44" selection-start-line="30" selection-start-column="3" selection-end-line="33" selection-end-column="44" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CheckOutList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="270" column="0" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
-          <folding>
-            <element signature="e#2315#2476#0" expanded="true" />
-            <element signature="e#2475#2476#0" expanded="true" />
-            <element signature="e#4221#4798#0" expanded="true" />
-            <element signature="e#4797#4798#0" expanded="true" />
-            <element signature="e#4847#5126#0" expanded="true" />
-            <element signature="e#5125#5126#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_and_payment_method.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_method.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mas_vendidos.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mas_vendidos.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="35" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="35" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/pop_windows_size.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/pop_windows_size.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.4333334">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="12" selection-end-column="20" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mas_vendidos.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_mas_vendidos.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="35" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="35" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_individual_item_info.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/ProductConfigurable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="44" selection-start-line="30" selection-start-column="3" selection-end-line="33" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6041667">
-          <caret line="74" column="43" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="43" />
-          <folding />
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/FisrtPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.04158">
-          <caret line="221" column="65" selection-start-line="221" selection-start-column="65" selection-end-line="221" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/MyProductAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2120583">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/paymentMethod.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Address.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_and_payment_method.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/ProductSimple.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="45" />
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_check_out_list.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/Adapters/MyProductAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_customer_info.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8">
-          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CheckOutItemsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="42" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
-          <folding />
+          <caret line="99" column="9" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1124#1125#0" expanded="false" />
+            <element signature="e#1174#1175#0" expanded="false" />
+            <element signature="e#1231#1232#0" expanded="false" />
+            <element signature="e#1288#1289#0" expanded="false" />
+            <element signature="e#1345#1346#0" expanded="false" />
+            <element signature="e#1376#1377#0" expanded="false" />
+            <element signature="e#1627#1628#0" expanded="false" />
+            <element signature="e#1675#1676#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/shippingMethod.java">
+    <entry file="jar://$PROJECT_DIR$/app/libs/PayPalAndroidSDK-2.9.5.jar!/com/paypal/android/sdk/A.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3035343">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.25">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -2120,59 +2359,191 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/MasVendidos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="353" column="41" selection-start-line="351" selection-start-column="7" selection-end-line="353" selection-end-column="41" />
+          <caret line="254" column="53" selection-start-line="254" selection-start-column="53" selection-end-line="254" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ProductConfigurable.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ProductSimple.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_shipping_method.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state vertical-scroll-proportion="-7.5333333">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/DataHolder.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sample.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0666666">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/round_button.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="34" />
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CustomerInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="181" column="27" selection-start-line="181" selection-start-column="27" selection-end-line="181" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/Adapters/CheckOutItemsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Sample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="125" column="52" selection-start-line="125" selection-start-column="52" selection-end-line="125" selection-end-column="52" />
           <folding>
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#718#719#0" expanded="true" />
-            <element signature="e#747#748#0" expanded="true" />
-            <element signature="e#1480#1481#0" expanded="true" />
-            <element signature="e#1520#1521#0" expanded="true" />
-            <element signature="e#3160#3161#0" expanded="true" />
-            <element signature="e#3215#3216#0" expanded="true" />
-            <element signature="e#3283#3284#0" expanded="true" />
-            <element signature="e#3319#3320#0" expanded="true" />
-            <element signature="e#3648#3649#0" expanded="true" />
-            <element signature="e#3673#3674#0" expanded="true" />
-            <element signature="e#3708#3709#0" expanded="true" />
-            <element signature="e#3735#3736#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#8436#8444#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/CheckMoney.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="5" selection-start-line="6" selection-start-column="3" selection-end-line="104" selection-end-column="5" />
+          <folding>
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+            <element signature="e#820#821#0" expanded="true" />
+            <element signature="e#862#863#0" expanded="true" />
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#949#950#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+            <element signature="e#1047#1048#0" expanded="true" />
+            <element signature="e#1095#1096#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1194#1195#0" expanded="true" />
+            <element signature="e#1236#1237#0" expanded="true" />
+            <element signature="e#1286#1287#0" expanded="true" />
+            <element signature="e#1323#1324#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+            <element signature="e#1433#1434#0" expanded="true" />
+            <element signature="e#1484#1485#0" expanded="true" />
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1584#1585#0" expanded="true" />
+            <element signature="e#1624#1625#0" expanded="true" />
+            <element signature="e#1673#1674#0" expanded="true" />
+            <element signature="e#1709#1710#0" expanded="true" />
+            <element signature="e#1774#1775#0" expanded="true" />
+            <element signature="e#1814#1815#0" expanded="true" />
+            <element signature="e#1866#1867#0" expanded="true" />
+            <element signature="e#1902#1903#0" expanded="true" />
+            <element signature="e#1966#1967#0" expanded="true" />
+            <element signature="e#2008#2009#0" expanded="true" />
+            <element signature="e#2058#2059#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/shippingMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/CreditCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#672#673#0" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#757#758#0" expanded="true" />
+            <element signature="e#821#822#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#1010#1011#0" expanded="true" />
+            <element signature="e#1048#1049#0" expanded="true" />
+            <element signature="e#1096#1097#0" expanded="true" />
+            <element signature="e#1131#1132#0" expanded="true" />
+            <element signature="e#1195#1196#0" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#1287#1288#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
+            <element signature="e#1390#1391#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1485#1486#0" expanded="true" />
+            <element signature="e#1523#1524#0" expanded="true" />
+            <element signature="e#1585#1586#0" expanded="true" />
+            <element signature="e#1625#1626#0" expanded="true" />
+            <element signature="e#1674#1675#0" expanded="true" />
+            <element signature="e#1710#1711#0" expanded="true" />
+            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="e#1815#1816#0" expanded="true" />
+            <element signature="e#1867#1868#0" expanded="true" />
+            <element signature="e#1903#1904#0" expanded="true" />
+            <element signature="e#1967#1968#0" expanded="true" />
+            <element signature="e#2009#2010#0" expanded="true" />
+            <element signature="e#2059#2060#0" expanded="true" />
+            <element signature="e#2096#2097#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/AddressInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.19750519">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Product.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Product.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
@@ -2180,25 +2551,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Cart.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/PayPal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="249" column="29" selection-start-line="249" selection-start-column="29" selection-end-line="249" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
-            <element signature="e#2025#2026#0" expanded="true" />
-          </folding>
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/Address.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42411643">
+          <caret line="153" column="9" selection-start-line="147" selection-start-column="6" selection-end-line="153" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/models/Cart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
           <folding>
-            <element signature="e#692#693#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2386#2387#0" expanded="true" />
+            <element signature="e#14179#14180#0" expanded="true" />
+            <element signature="e#14215#14216#0" expanded="true" />
+            <element signature="e#14263#14264#0" expanded="true" />
+            <element signature="e#14297#14298#0" expanded="true" />
+            <element signature="e#14843#14844#0" expanded="true" />
+            <element signature="e#14875#14876#0" expanded="true" />
+            <element signature="e#14907#14908#0" expanded="true" />
+            <element signature="e#14942#14943#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2206,36 +2589,116 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/CheckOutList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="256" column="41" selection-start-line="256" selection-start-column="41" selection-end-line="256" selection-end-column="41" />
+          <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
           <folding>
-            <element signature="e#2315#2476#0" expanded="true" />
-            <element signature="e#2475#2476#0" expanded="true" />
-            <element signature="e#4221#4798#0" expanded="true" />
-            <element signature="e#4797#4798#0" expanded="true" />
-            <element signature="e#4847#5126#0" expanded="true" />
-            <element signature="e#5125#5126#0" expanded="true" />
+            <element signature="e#2387#2548#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/IndividualItemInfo.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingMethodInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="616" column="46" selection-start-line="616" selection-start-column="46" selection-end-line="616" selection-end-column="46" />
+          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_individual_item_info.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.9">
+          <caret line="33" column="44" selection-start-line="30" selection-start-column="3" selection-end-line="33" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_payment_method_info.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42128602">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_address_info.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21064301">
+          <caret line="5" column="45" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_check_out_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_customer_info.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16851442">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/FisrtPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44698545">
+          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/DataHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53430355">
+          <caret line="98" column="34" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
           <folding>
-            <element signature="e#25521#26179#0" expanded="true" />
-            <element signature="e#26178#26179#0" expanded="true" />
+            <element signature="e#739#740#0" expanded="true" />
+            <element signature="e#767#768#0" expanded="true" />
+            <element signature="e#1565#1566#0" expanded="true" />
+            <element signature="e#1605#1606#0" expanded="true" />
+            <element signature="e#3248#3249#0" expanded="true" />
+            <element signature="e#3303#3304#0" expanded="true" />
+            <element signature="e#3638#3639#0" expanded="true" />
+            <element signature="e#3666#3667#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/ShippingAndPaymentMethod.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/myaplication/tfg/org/myapplication/PaymentMethodInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67151767">
-          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.08108108">
+          <caret line="346" column="32" selection-start-line="346" selection-start-column="32" selection-end-line="346" selection-end-column="32" />
           <folding>
-            <element signature="e#4747#5008#0" expanded="true" />
-            <element signature="e#5007#5008#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3753#4306#0" expanded="true" />
+            <element signature="e#4305#4306#0" expanded="true" />
+            <element signature="e#4408#4945#0" expanded="true" />
+            <element signature="e#4944#4945#0" expanded="true" />
+            <element signature="e#5036#5476#0" expanded="true" />
+            <element signature="e#5475#5476#0" expanded="true" />
+            <element signature="e#9082#9439#0" expanded="true" />
+            <element signature="e#9438#9439#0" expanded="true" />
+            <element signature="e#13050#13058#0" expanded="true" />
           </folding>
         </state>
       </provider>

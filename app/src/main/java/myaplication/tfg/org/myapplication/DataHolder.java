@@ -1,8 +1,12 @@
 package myaplication.tfg.org.myapplication;
 
-import java.util.ArrayList;
+import com.nineoldandroids.util.Property;
+
 import java.util.HashMap;
-import java.util.List;
+
+import myaplication.tfg.org.models.Cart;
+import myaplication.tfg.org.models.ProductConfigurable;
+import myaplication.tfg.org.models.ProductSimple;
 
 /**
  * Created by jin on 2015/5/21.
@@ -13,7 +17,6 @@ public class DataHolder {
     private static HashMap<String,ProductConfigurable> listProductConfigurable = new HashMap<>();
     private static HashMap<String,ProductSimple> listProductSimple = new HashMap<>();
     private static int CartId = 0;
-    private static Customer customer = new Customer();
     private static Cart cart ;
 
 
@@ -63,7 +66,7 @@ public class DataHolder {
         int t= number.intValue();
         ProductSimple p = listProductSimple.get(productId);
         p.setQuantity(t);
-        listProductSimple.put(productId,p);
+        listProductSimple.put(productId, p);
     }
 
     public static void updateBoughtSimpleProductQuantity(String productId,int quantity){
@@ -79,7 +82,7 @@ public class DataHolder {
         ProductSimple p = listProductSimple.get(productId);
         int totalQuanitity = p.getQuantity();
         totalQuanitity = totalQuanitity+quantity;
-        p.setItemNumber(p.getItemNumber()-quantity);
+        p.setItemNumber(p.getItemNumber() - quantity);
         p.setQuantity(totalQuanitity);
         listProductSimple.put(p.getProduct_id(),p);
         listCartItems.remove(p.getProduct_id());
@@ -92,21 +95,15 @@ public class DataHolder {
     public static HashMap<String,ProductSimple> getListCartItems(){
         return listCartItems;
     }
-
+    public static void setListCartItems(HashMap<String,ProductSimple> CartItems){
+        listCartItems = CartItems;
+    }
     public static int getCartId(){
         return CartId;
     }
 
     public static void setCartId(int num){
         CartId = num;
-    }
-
-    public static void setCustomer(Customer c){
-        customer = c;
-    }
-
-    public static Customer getCustomer(){
-        return customer;
     }
 
     public static void setCart(Cart c){

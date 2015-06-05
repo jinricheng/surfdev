@@ -172,5 +172,8 @@
     <string name="CustomerInfo">Customer Info</string>
     <string name="country">Your Country</string>
     <string name="title_activity_shipping_and_payment_method">ShippingAndPaymentMethod</string>
+    <string name="title_activity_paypal_example">paypalExample</string>
+    <string name="title_activity_sample">Sample</string>
+    <string name="title_activity_payment_method_info">PaymentMethodInfo</string>
 
 </resources>

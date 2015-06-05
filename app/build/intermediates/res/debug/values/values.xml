@@ -416,6 +416,9 @@
     <string name="title_activity_news">News</string>
     <string name="title_activity_oferta">Oferta</string>
     <string name="title_activity_oferta_item_detail">OfertaItemDetail</string>
+    <string name="title_activity_payment_method_info">PaymentMethodInfo</string>
+    <string name="title_activity_paypal_example">paypalExample</string>
+    <string name="title_activity_sample">Sample</string>
     <string name="title_activity_shipping_and_payment_method">ShippingAndPaymentMethod</string>
     <string name="title_activity_shop_cart">shopCart</string>
     <string name="title_activity_soap_test">soapTest</string>

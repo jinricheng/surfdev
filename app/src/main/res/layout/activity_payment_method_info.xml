@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="myaplication.tfg.org.myapplication.PaymentMethodInfo">
+
+    <TextView
+        android:id="@+id/payment_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="Payment Method: "
+        android:textSize="30dp"
+        android:textStyle ="bold"
+        android:textColor="#FF4000"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentLeft="true"
+        />
+
+    <Button
+        android:id="@+id/checkMoney"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_button"
+        android:layout_below="@+id/payment_method"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="Check Money"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/CreditCard"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_button"
+        android:layout_below="@+id/checkMoney"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="Pay with Credit Card"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/PayPal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_button"
+        android:layout_below="@+id/CreditCard"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="PayPal CheckOut"
+        android:textSize="20dp"/>
+
+</RelativeLayout>

@@ -1,7 +1,6 @@
 package myaplication.tfg.org.myapplication;
 
 import android.app.ProgressDialog;
-import android.content.Entity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -23,14 +22,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
+
+import myaplication.tfg.org.models.Address;
+import myaplication.tfg.org.models.Cart;
 
 
 public class AddressInfo extends ActionBarActivity {
@@ -70,7 +70,7 @@ public class AddressInfo extends ActionBarActivity {
             public void onClick(View view) {
                 createAddress();
                 new addCustomerAddress().execute();
-                Intent intent = new Intent(AddressInfo.this,ShippingAndPaymentMethod.class);
+                Intent intent = new Intent(AddressInfo.this,ShippingMethodInfo.class);
                 startActivity(intent);
             }
         });
@@ -146,7 +146,7 @@ public class AddressInfo extends ActionBarActivity {
         protected String doInBackground(String... strings) {
             try {
                 cart.addAddress(address);
-
+                DataHolder.getCart().setAddress(address);
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (XmlPullParserException e) {

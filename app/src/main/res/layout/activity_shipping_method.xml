@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="myaplication.tfg.org.myapplication.ShippingMethodInfo"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/shipping_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="Shipping Method: "
+        android:textSize="30dp"
+        android:textStyle ="bold"
+        android:textColor="#FF4000"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentLeft="true"
+        />
+
+    <RadioGroup
+        android:id = "@+id/shipping_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below = "@+id/shipping_method"
+        android:orientation="vertical">
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/subTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shipping_group"
+        android:textSize="24dp"
+        android:textColor="#000"
+        android:textStyle = "italic"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        />
+
+    <TextView
+        android:id="@+id/shippingCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subTotal"
+        android:textSize="24dp"
+       android:textStyle = "italic"
+        android:textColor="#000"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/shippingCost"
+        android:background="#0404B4"/>
+    <TextView
+        android:id="@+id/Total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        />
+
+    <Button
+        android:id="@+id/continuePayment"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/round_button"
+        android:layout_below="@+id/Total"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="Choose payment"
+        android:textSize="20dp"/>
+
+</RelativeLayout>

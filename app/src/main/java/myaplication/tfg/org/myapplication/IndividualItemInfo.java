@@ -1,16 +1,11 @@
 package myaplication.tfg.org.myapplication;
 
-import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.provider.ContactsContract;
-import android.provider.MediaStore;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
@@ -22,21 +17,13 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SimpleAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
@@ -53,6 +40,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import myaplication.tfg.org.models.ProductConfigurable;
+import myaplication.tfg.org.models.ProductSimple;
+import myaplication.tfg.org.models.StringArraySerializer;
 
 public class IndividualItemInfo extends ActionBarActivity {
     private ImageButton imageButton;
@@ -111,7 +101,7 @@ public class IndividualItemInfo extends ActionBarActivity {
         TextView description = (TextView)findViewById(R.id.detail_description);
         ImageView image = (ImageView)findViewById(R.id.detail_image);
         TextView d = (TextView)findViewById(R.id.d);
-        String fullprice = "Price: " + p.getPrice();
+        String fullprice = "Price: " + p.getPrice()+"\u20AC";
         title.setText(p.getTitle());
         UrlImageViewHelper.setUrlDrawable(image, p.getImage());
         description.setText(p.getDescription());
