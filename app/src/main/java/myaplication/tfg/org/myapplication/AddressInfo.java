@@ -30,7 +30,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 
 import myaplication.tfg.org.models.Address;
-import myaplication.tfg.org.models.Cart;
+import myaplication.tfg.org.ApiMethod.Cart;
 
 
 public class AddressInfo extends ActionBarActivity {
@@ -195,8 +195,6 @@ public class AddressInfo extends ActionBarActivity {
         LayoutInflater mInflater = LayoutInflater.from(this);
         View mCustomView = mInflater.inflate(R.layout.customactionbar, null);
         ImageView cart = (ImageView)mCustomView.findViewById(R.id.shopCartButton);
-        TextView title = (TextView)mCustomView.findViewById(R.id.title_text);
-        title.setVisibility(View.GONE);
         cart.setVisibility(View.GONE);
         TextView listNumber = (TextView)mCustomView.findViewById(R.id.number);
         listNumber.setVisibility(View.GONE);

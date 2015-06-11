@@ -80,19 +80,23 @@ public class MyProductAdapter extends BaseAdapter {
         else{
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        ProductConfigurable p = productConfigurables.get(position);
-        if(p != null){
-         if(p.getSection().equals("Offers")) {
-             viewHolder.especial.setImageResource(R.drawable.oferta_icon);
 
-         }
-         else if(p.getSection().equals("News")){
-             viewHolder.especial.setImageResource(R.drawable.new_icon);
-         }
-            else{
-             viewHolder.especial.setImageResource(R.drawable.hot_icon);
-             viewHolder.quantity.setText("Sold:"+"3");
-         }
+
+        ProductConfigurable p = productConfigurables.get(position);
+
+        if(p != null){
+            if(p.getSection()!=null){
+                if(p.getSection().equals("Offers")) {
+                viewHolder.especial.setImageResource(R.drawable.oferta_icon);
+                }
+                else if(p.getSection().equals("News")){
+                    viewHolder.especial.setImageResource(R.drawable.new_icon);
+                 }
+                else{
+                    viewHolder.especial.setImageResource(R.drawable.hot_icon);
+                    viewHolder.quantity.setText("Sold:"+"3");
+                }
+            }
 
         viewHolder.title.setText(p.getTitle());
         UrlImageViewHelper.setUrlDrawable(viewHolder.image, p.getImage());

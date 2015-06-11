@@ -8,7 +8,10 @@ import android.app.ExpandableListActivity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.preference.DialogPreference;
+import android.support.v4.view.MenuItemCompat;
+import android.util.Log;
 import android.view.View.OnClickListener;
 import android.content.Intent;
 import android.support.v4.view.GravityCompat;
@@ -30,15 +33,22 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import myaplication.tfg.org.ApiMethod.Category;
 
 
 public class FisrtPage extends ActionBarActivity {
@@ -53,18 +63,29 @@ public class FisrtPage extends ActionBarActivity {
     private ImageButton imageButton;
     private SimpleAdapter adapter1;
     private ListAdapter adapter2;
+    private HashMap<String,HashMap<String,Integer>> listData;
+    HashMap<String,Integer> secondLevelData;
+    private Category category;
+    private List<String> firstLevel;
+    private List<String> secondLevel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fisrt_page);
         initMainListView();
         initCusmizedActionBar();
-        initNavigationList();
+        listData = new HashMap<>();
+        new navegationListData().execute();
     }
+
 
     private void initNavigationList() {
         navigationList = (ListView)findViewById(R.id.left_drawer);
-        String[] content = getResources().getStringArray(R.array.navigationFirstLevel);
+
+        firstLevel = new ArrayList<>(listData.keySet());
+        System.out.println(Integer.toString(firstLevel.size()));
+
+        String[] content = firstLevel.toArray(new String[firstLevel.size()]);
         list2 = new ArrayList<HashMap<String, String>>();
         for(int i=0;i<content.length;i++){
             HashMap<String,String> map1 = new HashMap<String,String>();
@@ -85,8 +106,35 @@ public class FisrtPage extends ActionBarActivity {
 
     }
 
+    private class navegationListData extends AsyncTask<String,Float,String>{
 
- /*listener of first level of navigation menu*/
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                category = new Category();
+                if(category.getSessionId().equals("")){
+                    category.setupSessionLogin();
+                }
+                listData = category.getAllCategoryIds();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (XmlPullParserException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            Log.d("Hi", "Done Downloading.");
+            if(listData.size()>0){
+            initNavigationList();}
+        }
+    }
+
+    /*listener of first level of navigation menu*/
     private class firstLevelItemsClickListener implements ListView.OnItemClickListener{
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -96,51 +144,12 @@ public class FisrtPage extends ActionBarActivity {
 
     private void loadContent(int position){
          String[] content;
-        switch(position){
-            case 0:
-                content = getResources().getStringArray(R.array.snowboard);
-                setAdapter(content);
-                break;
-            case 1:
-                content = getResources().getStringArray(R.array.snowWear);
-                setAdapter(content);
-                break;
-            case 2:
-                content = getResources().getStringArray(R.array.fleece);
-                setAdapter(content);
-                break;
-            case 3:
-                content = getResources().getStringArray(R.array.boots);
-                setAdapter(content);
-                break;
-            case 4:
-                content = getResources().getStringArray(R.array.goggles);
-                setAdapter(content);
-                break;
-            case 5:
-                content = getResources().getStringArray(R.array.protection);
-                setAdapter(content);
-                break;
-            case 6:
-                content = getResources().getStringArray(R.array.StreetWear);
-                setAdapter(content);
-                break;
-            case 7:
-                content = getResources().getStringArray(R.array.bindings);
-                setAdapter(content);
-                break;
-            case 8:
-                content = getResources().getStringArray(R.array.bags);
-                setAdapter(content);
-                break;
-            case 9:
-                content = getResources().getStringArray(R.array.Accessories);
-                setAdapter(content);
-                break;
-            default:
-                navigationList.setOnItemClickListener(new firstLevelItemsClickListener());
-        }
-
+         String categoryName = firstLevel.get(position);
+         secondLevelData = listData.get(categoryName);
+         secondLevel = new ArrayList(secondLevelData.keySet());
+        content = secondLevel.toArray(new String[secondLevel.size()]);
+        setAdapter(content);
+        navigationList.setOnItemClickListener(new secondLevelMenuItemsClickListener());
     }
 
 
@@ -153,7 +162,13 @@ public class FisrtPage extends ActionBarActivity {
         }
     }
     private void loadContent2(int position){
-        String[] content;
+        String result = secondLevel.get(position);
+        Intent intent = new Intent(FisrtPage.this,CategorySection.class);
+        intent.putExtra("section", result);
+        int categoryId = secondLevelData.get(result);
+        intent.putExtra("categoryId",categoryId);
+
+        startActivity(intent);
     }
 
     private class listPrincipalItemClickListener implements ListView.OnItemClickListener{
@@ -167,17 +182,17 @@ public class FisrtPage extends ActionBarActivity {
     private void loadContent3(int position){
           switch (position){
               case 0:
-                  Intent intent = new Intent(this,Sample.class);
-                //  intent.putExtra("name","Offers");
+                  Intent intent = new Intent(this,SpecialSection.class);
+                  intent.putExtra("name","Offers");
                   startActivity(intent);
                   break;
               case 1:
-                  Intent intent1 = new Intent(this,MasVendidos.class);
+                  Intent intent1 = new Intent(this,SpecialSection.class);
                   intent1.putExtra("name","News");
                   startActivity(intent1);
                   break;
               case 2:
-                  Intent intent2 = new Intent(this,MasVendidos.class);
+                  Intent intent2 = new Intent(this,SpecialSection.class);
                   intent2.putExtra("name","Top_Sellers");
                   startActivity(intent2);
                   break;
@@ -200,16 +215,13 @@ public class FisrtPage extends ActionBarActivity {
         LayoutInflater mInflater = LayoutInflater.from(this);
         View mCustomView = mInflater.inflate(R.layout.customactionbar, null);
         TextView listNumber = (TextView)mCustomView.findViewById(R.id.number);
+       TextView title = (TextView)mCustomView.findViewById(R.id.logoTitle);
+       title.setVisibility(View.GONE);
         int number = DataHolder.getNumber();
         listNumber.setText(Integer.toString(number));
+        listNumber.setVisibility(View.GONE);
         imageButton = (ImageButton)mCustomView.findViewById(R.id.shopCartButton);
-        imageButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FisrtPage.this,CheckOutList.class);
-                startActivity(intent);
-            }
-        });
+        imageButton.setVisibility(View.GONE);
         actionBar.setCustomView(mCustomView);
         actionBar.setDisplayShowCustomEnabled(true);
     }
@@ -222,8 +234,8 @@ public class FisrtPage extends ActionBarActivity {
         HashMap<String,String> map3=new HashMap<String,String>();
         map1.put("nom","Offer >>");
         map1.put("images",Integer.toString(R.drawable.oferta));
-        map2.put("nom","News>>");
-        map2.put("images",Integer.toString(R.drawable.novedades));
+        map2.put("nom", "News>>");
+        map2.put("images", Integer.toString(R.drawable.novedades));
         map3.put("nom", "Top sellers>>");
         map3.put("images", Integer.toString(R.drawable.mas_vendidos));
         list.add(map1);
@@ -245,16 +257,31 @@ public class FisrtPage extends ActionBarActivity {
         navigationList.setAdapter(adapter2);
         navigationList.setOnItemClickListener(new secondLevelMenuItemsClickListener());
     }
-    /*
+
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
             // Inflate the menu; this adds items to the action bar if it is present.
             getMenuInflater().inflate(R.menu.menu_fisrt_page, menu);
-    
-    
+            MenuItem searchItem = menu.findItem(R.id.action_search);
+            SearchView searchView = (SearchView) searchItem.getActionView();
+            searchView.setQueryHint("type a Key Word");
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    Intent intent = new Intent(FisrtPage.this,SearchInfo.class);
+                    intent.putExtra("query",s);
+                    startActivity(intent);
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    return false;
+                }
+            });
             return true;
         }
-    */
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

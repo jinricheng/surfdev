@@ -33,39 +33,14 @@
         </activity>
         <activity
             android:name=".FisrtPage"
-            android:label=""
+            android:label="HOME"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:uiOptions="splitActionBarWhenNarrow" >
         </activity>
         <activity
-            android:name=".shopCart"
-            android:label="@string/title_activity_shop_cart"
-            android:parentActivityName=".FisrtPage"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="myaplication.tfg.org.myapplication.FisrtPage" />
-        </activity>
-        <activity
             android:name=".IndividualItemInfo"
             android:label="@string/title_activity_individual_item_info"
-            android:theme="@style/AppTheme" >
-        </activity>
-        <activity
-            android:name=".MasVendidos"
-            android:label="@string/title_activity_mas_vendidos"
-            android:theme="@style/AppTheme" >
-        </activity>
-        <activity
-            android:name=".News"
-            android:label="@string/title_activity_news"
-            android:theme="@style/AppTheme" >
-        </activity>
-        <activity
-            android:name=".soapTest"
-            android:label="@string/title_activity_soap_test"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
@@ -106,8 +81,22 @@
         <activity
             android:name=".PaymentMethodInfo"
             android:label="@string/title_activity_payment_method_info"
-            android:theme="@style/AppTheme"
-            >
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".SpecialSection"
+            android:label="@string/title_activity_special_section"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".SearchInfo"
+            android:label="@string/title_activity_search_info"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".CategorySection"
+            android:label="@string/title_activity_category_section"
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 

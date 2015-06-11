@@ -23,13 +23,6 @@
         <dex dex="C:\Users\jin\AndroidStudioProjects\MyApplication\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-bbf053b6e39b01e9b3b1d215e7e53d56b64ab110.jar" />
     </item>
     <item
-        jar="D:\TFGAplication\tfg\app\libs\PayPalAndroidSDK-2.9.5.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4f0a3e3f3fda51ced78404438b0cde634407c826">
-        <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\PayPalAndroidSDK-2.9.5-2efb9ba7fc17339315f9c79c669c608cb752f165.jar" />
-    </item>
-    <item
         jar="D:\TFGAplication\tfg\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -44,46 +37,11 @@
         <dex dex="C:\Users\jin\Desktop\img\jpg\AndroidStudioProjects\MyApplication\app\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.4.0-jar-with-dependencies-5bc98412d149fe75d1ba8b6a6314c80a3022e3e1.jar" />
     </item>
     <item
-        jar="D:\TFGAplication\tfg\app\libs\urlimageviewhelper-1.0.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="67125d743e0035a1b157ba8210c2abf1ff374e10">
-        <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\urlimageviewhelper-1.0.4-301d6dc6d51d27331c9e596903692bd5bf336864.jar" />
-    </item>
-    <item
         jar="D:\jdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
         <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-98a4bdb61773cb45c3023f40e445361854ae1fb9.jar" />
-    </item>
-    <item
-        jar="C:\Users\jin\AndroidStudioProjects\MyApplication\app\libs\urlimageviewhelper-1.0.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="67125d743e0035a1b157ba8210c2abf1ff374e10">
-        <dex dex="C:\Users\jin\AndroidStudioProjects\MyApplication\app\build\intermediates\pre-dexed\debug\urlimageviewhelper-1.0.4-92317712109582ff5794a24dc94774da57544ac7.jar" />
-    </item>
-    <item
-        jar="C:\Users\jin\Desktop\img\jpg\AndroidStudioProjects\MyApplication\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="C:\Users\jin\Desktop\img\jpg\AndroidStudioProjects\MyApplication\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-9b3bcd07a3c91b6406c3331129cc4446ca898c01.jar" />
-    </item>
-    <item
-        jar="D:\TFGAplication\tfg\app\build\intermediates\exploded-aar\com.github.sd6352051.niftydialogeffects\niftydialogeffects\1.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f6e011916db951e72f3a2be65cfb864bf5408035">
-        <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\classes-5667383f952810a3b6050737ee12ac2b0e3f63e7.jar" />
-    </item>
-    <item
-        jar="D:\TFGAplication\tfg\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\classes-f09468bc870f63089324dd7c01f6f11c2bfeb161.jar" />
     </item>
     <item
         jar="D:\TFGAplication\tfg\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
@@ -107,13 +65,6 @@
         <dex dex="C:\Users\jin\Desktop\img\jpg\AndroidStudioProjects\MyApplication\app\build\intermediates\pre-dexed\debug\classes-3e1e2dff3b950b4ea129b6e884c2c748456f4b7d.jar" />
     </item>
     <item
-        jar="D:\TFGAplication\tfg\app\libs\ksoap2-android-assembly-3.0.0-jar-with-dependencies.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="224c93f1824fa17b96db7250c2e5e2703d45e052">
-        <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.0.0-jar-with-dependencies-527eb04cf585175e636d13aec4fda37ef5c07a6f.jar" />
-    </item>
-    <item
         jar="C:\Users\jin\Desktop\img\jpg\AndroidStudioProjects\MyApplication\app\libs\urlimageviewhelper-1.0.4.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -126,6 +77,55 @@
         revision="21.1.2"
         sha1="45fbaab416fb5cff992e662d1f7a83786f084fc3">
         <dex dex="C:\Users\jin\AndroidStudioProjects\MyApplication\app\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.4.0-jar-with-dependencies-24eec23dec1612a11492d0963cb23a1f205f02b2.jar" />
+    </item>
+    <item
+        jar="D:\TFGAplication\tfg\app\libs\PayPalAndroidSDK-2.9.5.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4f0a3e3f3fda51ced78404438b0cde634407c826">
+        <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\PayPalAndroidSDK-2.9.5-2efb9ba7fc17339315f9c79c669c608cb752f165.jar" />
+    </item>
+    <item
+        jar="D:\TFGAplication\tfg\app\libs\urlimageviewhelper-1.0.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="67125d743e0035a1b157ba8210c2abf1ff374e10">
+        <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\urlimageviewhelper-1.0.4-301d6dc6d51d27331c9e596903692bd5bf336864.jar" />
+    </item>
+    <item
+        jar="C:\Users\jin\Desktop\img\jpg\AndroidStudioProjects\MyApplication\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="C:\Users\jin\Desktop\img\jpg\AndroidStudioProjects\MyApplication\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-9b3bcd07a3c91b6406c3331129cc4446ca898c01.jar" />
+    </item>
+    <item
+        jar="C:\Users\jin\AndroidStudioProjects\MyApplication\app\libs\urlimageviewhelper-1.0.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="67125d743e0035a1b157ba8210c2abf1ff374e10">
+        <dex dex="C:\Users\jin\AndroidStudioProjects\MyApplication\app\build\intermediates\pre-dexed\debug\urlimageviewhelper-1.0.4-92317712109582ff5794a24dc94774da57544ac7.jar" />
+    </item>
+    <item
+        jar="D:\TFGAplication\tfg\app\build\intermediates\exploded-aar\com.github.sd6352051.niftydialogeffects\niftydialogeffects\1.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f6e011916db951e72f3a2be65cfb864bf5408035">
+        <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\classes-5667383f952810a3b6050737ee12ac2b0e3f63e7.jar" />
+    </item>
+    <item
+        jar="D:\TFGAplication\tfg\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\classes-f09468bc870f63089324dd7c01f6f11c2bfeb161.jar" />
+    </item>
+    <item
+        jar="D:\TFGAplication\tfg\app\libs\ksoap2-android-assembly-3.0.0-jar-with-dependencies.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="224c93f1824fa17b96db7250c2e5e2703d45e052">
+        <dex dex="D:\TFGAplication\tfg\app\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-3.0.0-jar-with-dependencies-527eb04cf585175e636d13aec4fda37ef5c07a6f.jar" />
     </item>
 
 </items>

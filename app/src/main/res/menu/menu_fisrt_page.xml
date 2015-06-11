@@ -3,14 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="myaplication.tfg.org.myapplication.FisrtPage">
 
-
-    <item android:id ="@+id/menu" android:title ="Menu"
-        android:icon = "@drawable/three_lines"
-        android:orderInCategory="1"
-
-        app:showAsAction="always"/>
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
 
 
-
-
+    <item android:id="@+id/action_search"
+        android:title="@string/action_search"
+        app:showAsAction="always"
+        app:actionViewClass="android.widget.SearchView" />
 </menu>

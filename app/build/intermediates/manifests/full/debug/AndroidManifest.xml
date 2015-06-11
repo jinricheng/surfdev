@@ -39,39 +39,14 @@
         </activity>
         <activity
             android:name="myaplication.tfg.org.myapplication.FisrtPage"
-            android:label=""
+            android:label="HOME"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:uiOptions="splitActionBarWhenNarrow" >
         </activity>
         <activity
-            android:name="myaplication.tfg.org.myapplication.shopCart"
-            android:label="@string/title_activity_shop_cart"
-            android:parentActivityName="myaplication.tfg.org.myapplication.FisrtPage"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="myaplication.tfg.org.myapplication.FisrtPage" />
-        </activity>
-        <activity
             android:name="myaplication.tfg.org.myapplication.IndividualItemInfo"
             android:label="@string/title_activity_individual_item_info"
-            android:theme="@style/AppTheme" >
-        </activity>
-        <activity
-            android:name="myaplication.tfg.org.myapplication.MasVendidos"
-            android:label="@string/title_activity_mas_vendidos"
-            android:theme="@style/AppTheme" >
-        </activity>
-        <activity
-            android:name="myaplication.tfg.org.myapplication.News"
-            android:label="@string/title_activity_news"
-            android:theme="@style/AppTheme" >
-        </activity>
-        <activity
-            android:name="myaplication.tfg.org.myapplication.soapTest"
-            android:label="@string/title_activity_soap_test"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
@@ -112,6 +87,21 @@
         <activity
             android:name="myaplication.tfg.org.myapplication.PaymentMethodInfo"
             android:label="@string/title_activity_payment_method_info"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name="myaplication.tfg.org.myapplication.SpecialSection"
+            android:label="@string/title_activity_special_section"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name="myaplication.tfg.org.myapplication.SearchInfo"
+            android:label="@string/title_activity_search_info"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name="myaplication.tfg.org.myapplication.CategorySection"
+            android:label="@string/title_activity_category_section"
             android:theme="@style/AppTheme" >
         </activity>
     </application>

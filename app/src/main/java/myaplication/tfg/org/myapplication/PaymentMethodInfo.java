@@ -34,7 +34,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import org.json.JSONException;
-import org.ksoap2.serialization.SoapObject;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
@@ -52,7 +51,7 @@ import java.util.Set;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import myaplication.tfg.org.models.Address;
-import myaplication.tfg.org.models.Cart;
+import myaplication.tfg.org.ApiMethod.Cart;
 import myaplication.tfg.org.models.CheckMoney;
 import myaplication.tfg.org.models.CreditCard;
 import myaplication.tfg.org.models.Customer;
@@ -252,7 +251,7 @@ private void toFirstPage() throws IOException, XmlPullParserException {
     builder.setTitle("Payment received correctly!")
             .setIcon(R.drawable.ok)
             .setMessage("payment received,we will process the shipping soon.")
-            .setPositiveButton("Return to first page", new DialogInterface.OnClickListener() {
+            .setPositiveButton("Return to Home", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();

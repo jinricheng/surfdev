@@ -1,10 +1,8 @@
 package myaplication.tfg.org.myapplication;
 
-import com.nineoldandroids.util.Property;
-
 import java.util.HashMap;
 
-import myaplication.tfg.org.models.Cart;
+import myaplication.tfg.org.ApiMethod.Cart;
 import myaplication.tfg.org.models.ProductConfigurable;
 import myaplication.tfg.org.models.ProductSimple;
 

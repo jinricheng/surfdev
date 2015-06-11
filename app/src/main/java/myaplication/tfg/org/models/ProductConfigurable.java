@@ -5,25 +5,79 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import myaplication.tfg.org.models.Product;
-import myaplication.tfg.org.models.ProductSimple;
-
 /**
  * Created by jin on 2015/4/15.
  */
-public class ProductConfigurable  extends Product implements Serializable{
+public class ProductConfigurable  implements Serializable{
    private String type;
     private HashMap<String,ProductSimple> productsSimple;
     private List<String> simpleProductId;
     private String section;
+    private String product_id;
+    private String image;
+    private String title;
+    private String sku;
+    private String price;
+    private String description;
+    private String size;
 
     public ProductConfigurable(){
         productsSimple = new HashMap<String,ProductSimple>();
         simpleProductId = new ArrayList<String>();
     }
     public ProductConfigurable(String product_id,String image, String title, String price, String description, String size){
-        super(product_id,image,title,price,description,size);
+
     }
+
+    public void setProduct_id(String product_id){
+        this.product_id=product_id;
+    }
+    public void setImage(String imageUrl){
+        this.image = imageUrl;
+    }
+
+    public void setTitle(String title){
+        this.title =  title;
+    }
+
+    public void setDescription(String description){
+        this.description=  description;
+    }
+
+    public void setSize(String size){this.size =  size; }
+
+    public void setPrice(String price){
+        this.price =  price;
+    }
+    public String getImage(){
+        return this.image;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+
+    public String getPrice(){
+        return this.price;
+    }
+
+    public String getTitle(){
+        return this.title;
+    }
+
+    public String getProduct_id(){return this.product_id;}
+
+    public void setSku(String sku){
+        this.sku=sku;
+    }
+    public String getSku(){
+        return this.sku;
+    }
+
+    public String getSize(){
+        return this.size;
+    }
+
 
     public void setType(String type){
         this.type = type;
@@ -65,4 +119,6 @@ public class ProductConfigurable  extends Product implements Serializable{
     public String getSection(){
         return this.section;
     }
+
+    public String toString () { return "Product: "+this.getProduct_id()+" "+this.getPrice()+" " +this.getDescription();}
 }

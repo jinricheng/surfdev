@@ -230,7 +230,6 @@ public class IndividualItemInfo extends ActionBarActivity {
             for(int i =0;i<r.getPropertyCount();i++){
                 SoapObject child =(SoapObject)r.getProperty(i);
                 DataHolder.setSimpleProductQuantity((String) child.getProperty("product_id"), (String) child.getProperty("qty"));
-                System.out.println("productQuantity:"+(String) child.getProperty("qty"));
             }
 
         }

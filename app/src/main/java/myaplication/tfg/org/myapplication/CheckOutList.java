@@ -34,7 +34,7 @@ import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import myaplication.tfg.org.Adapters.CheckOutItemsAdapter;
-import myaplication.tfg.org.models.Cart;
+import myaplication.tfg.org.ApiMethod.Cart;
 import myaplication.tfg.org.models.ProductSimple;
 
 
@@ -74,7 +74,22 @@ public class CheckOutList extends ActionBarActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(checkOutItemsList.size()==0){
+                    new SweetAlertDialog(CheckOutList.this, SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("Empty Cart")
+                            .setContentText("add some items please XD..")
+                            .setConfirmText("Ok")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sDialog) {
+                                    sDialog.dismiss();
+                                }
+                            })
+                            .show();
+                }
+                else{
                 new addItems().execute();
+                }
             }
         });
     }
@@ -182,12 +197,12 @@ public class CheckOutList extends ActionBarActivity {
         @Override
         protected String doInBackground(String... strings) {
             try {
-                cart = new Cart();
-                cart.setupSessionLogin();
-                if (cart.getCartId() == 0) {
-                    cart.createShopCart();
-                }
-                cart.addToCart(checkOutItemsList);
+                    cart = new Cart();
+                    cart.setupSessionLogin();
+                    if (cart.getCartId() == 0) {
+                        cart.createShopCart();
+                    }
+                    cart.addToCart(checkOutItemsList);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -202,26 +217,13 @@ public class CheckOutList extends ActionBarActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             pDialog.dismiss();
-            if(checkOutItemsList.size()==0){
-                new SweetAlertDialog(CheckOutList.this, SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Empty Cart")
-                        .setContentText("add some items please XD..")
-                        .setConfirmText("Ok")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sDialog) {
-                                sDialog.dismiss();
-                            }
-                        })
-                        .show();
-            }
-            else{
+
                 cart.setListItems(checkOutItemsList);
                 Intent intent = new Intent(CheckOutList.this,CustomerInfo.class);
                 DataHolder.setCart(cart);
                 startActivity(intent);
 
-            }
+
         }
 
     }
