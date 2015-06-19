@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ListView android:id="@+id/check_out_list"
+        android:padding = "1dp"
+        android:layout_marginTop="3dp"
+       android:layout_width="match_parent"
+       android:layout_height="360dp"
+       android:divider="#F6E3CE"
+       android:dividerHeight="2px"
+       android:listSelector="#fff"
+       android:drawSelectorOnTop="false"
+    />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_below = "@+id/check_out_list"
+        android:layout_marginTop="10dp"
+        android:layout_height="3dip"
+        android:background="#FF909090"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
+    <TextView
+        android:id="@+id/total_Amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize = "25dp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/continuebutton"
+        android:layout_below="@+id/total_Amount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Continue"
+        android:textSize="25dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:background="@drawable/round_button"
+        />
+    </RelativeLayout>
+</LinearLayout>
+<!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/layout/activity_check_out_list.xml -->

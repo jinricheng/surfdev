@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<ImageView
+    android:id="@+id/image2"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:adjustViewBounds="true"
+
+    android:layout_alignParentRight="true"
+    android:layout_marginTop="10dp"
+    >
+</ImageView>
+<TextView
+    android:id="@+id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFF"
+    android:textSize="21sp"
+    android:gravity="start"
+    android:paddingRight="8dp"
+    android:minHeight="30sp"
+    android:textStyle="bold"
+    android:background="@drawable/selector"
+    >
+
+</TextView>
+</RelativeLayout><!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/layout/navigation_list_items.xml -->

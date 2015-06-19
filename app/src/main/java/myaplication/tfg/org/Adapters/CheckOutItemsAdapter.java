@@ -78,11 +78,8 @@ public class CheckOutItemsAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         ProductSimple p = productSimples.get(position);
-
             viewHolder.title.setText(p.getTitle());
             UrlImageViewHelper.setUrlDrawable(viewHolder.image, p.getImage());
-            // image.setImageResource(R.drawable.jacket);
-        //    viewHolder.icon.setImageResource(R.drawable.ic_action_next_item_dark);
             String quantityNumber = "Quantity: "+p.getItemNumber();
             String priceIndividual = p.getPrice();
             priceIndividual = priceIndividual.replaceAll(",",".");
@@ -90,8 +87,6 @@ public class CheckOutItemsAdapter extends BaseAdapter {
             DecimalFormat formatter = new DecimalFormat("#,##0.00");
             viewHolder.price.setText(formatter.format(finalPrice)+"\u20AC");
             viewHolder.quantity.setText(quantityNumber);
-
-
         return convertView;
     }
 }

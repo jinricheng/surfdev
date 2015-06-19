@@ -81,7 +81,6 @@ public class FisrtPage extends ActionBarActivity {
 
     private void initNavigationList() {
         navigationList = (ListView)findViewById(R.id.left_drawer);
-
         firstLevel = new ArrayList<>(listData.keySet());
         System.out.println(Integer.toString(firstLevel.size()));
 
@@ -94,12 +93,14 @@ public class FisrtPage extends ActionBarActivity {
 
             list2.add(map1);
         }
+
         adapter1 = new SimpleAdapter(this, list2,R.layout.navigation_list_items, new String[]{"nom","images"},new int[]{R.id.text1,R.id.image2});
         navigationList.setAdapter(adapter1);
         drawerlayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerlayout, R.string.drawer_open, R.string.drawer_close);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,
+                drawerlayout, R.string.drawer_open, R.string.drawer_close);
         actionBarDrawerToggle.syncState();
         drawerlayout.setDrawerListener(actionBarDrawerToggle);
         navigationList.setOnItemClickListener(new firstLevelItemsClickListener());
@@ -241,7 +242,8 @@ public class FisrtPage extends ActionBarActivity {
         list.add(map1);
         list.add(map2);
         list.add(map3);
-        listAdapter = new SimpleAdapter(this, list,R.layout.list_item, new String[]{"nom","images"},new int[]{R.id.rowTextView,R.id.images});
+        listAdapter = new SimpleAdapter(this, list,R.layout.list_item,
+                new String[]{"nom","images"},new int[]{R.id.rowTextView,R.id.images});
         listView.setAdapter(listAdapter);
         listView.setOnItemClickListener(new listPrincipalItemClickListener());
     }

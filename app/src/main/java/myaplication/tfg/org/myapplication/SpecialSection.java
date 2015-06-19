@@ -122,6 +122,7 @@ public class SpecialSection extends ActionBarActivity implements AbsListView.OnS
             Log.d("Hi", "Done Downloading.");
             System.out.println("we have product at this moment "+product.getCount()+" show available one time"+ product.getAddItemsNumber());
             if(product.getCount() <= product.getAddItemsNumber()){
+                System.out.println("size"+product.getProductConfigurables().size());
                 createItemList(product.getProductConfigurables());}
             else {
                 if(adapter1 == null){
@@ -151,16 +152,18 @@ public class SpecialSection extends ActionBarActivity implements AbsListView.OnS
 
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
-        if (isPageDiv && scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
-            if(product.getAllItemsNumber()<product.getAllListItemsSize()){
+        if (isPageDiv && scrollState ==
+                AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
 
+            if(product.getCount()<product.getAllListItemsSize()){
                 new DownLoad().execute();}
 
         }
     }
 
     @Override
-    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+    public void onScroll(AbsListView view, int firstVisibleItem,
+                         int visibleItemCount, int totalItemCount) {
         isPageDiv = (firstVisibleItem + visibleItemCount == totalItemCount);
     }
 

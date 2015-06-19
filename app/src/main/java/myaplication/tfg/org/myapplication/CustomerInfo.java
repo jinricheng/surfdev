@@ -127,8 +127,6 @@ public class CustomerInfo extends ActionBarActivity {
             try {
                 setupSessionLogin();
                 addAction();
-
-
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (XmlPullParserException e) {

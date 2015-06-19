@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+
+    <RadioGroup
+        android:id = "@+id/size_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+       </RadioGroup>
+</RelativeLayout><!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/layout/pop_windows_size.xml -->

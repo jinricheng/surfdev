@@ -89,8 +89,10 @@ public class AddressInfo extends ActionBarActivity {
 
     private void initialAdapters() {
         address = new Address();
-        countryAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,countries);
-        cityAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,cities);
+        countryAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1,countries);
+        cityAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1,cities);
         country.setAdapter(countryAdapter);
         city.setAdapter(cityAdapter);
 

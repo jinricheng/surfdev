@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <shape android:shape="rectangle" >
+            <solid android:color="#0066CC" />
+            <corners android:radius="13dip" />
+            <padding android:bottom="10dp" android:left="15dp" android:right="15dp" android:top="10dp" />
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#000033" />
+            <corners android:radius="13dip" />
+        </shape>
+    </item>
+</selector><!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/drawable/add_cart_button.xml -->

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <ImageView
+            android:id="@+id/detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:padding="6dp"
+            android:layout_alignParentTop="true"
+
+            />
+
+
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:padding="5dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#FF909090"/>
+
+        <TextView
+            android:id = "@+id/detail_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textColor="#000"
+            android:textStyle="italic"
+            android:padding="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#FF909090"/>
+
+        <TextView
+            android:id="@+id/d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="21dp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="2dp"
+            />
+
+        <TextView
+            android:id="@+id/detail_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="10dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#FF909090"/>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="58dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/detail_description"
+            android:background="#fff"
+            android:gravity="center"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true" >
+                <LinearLayout
+                    android:id="@+id/layout_watch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+                    <ImageView
+                        android:id="@+id/image_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:background="@null"
+                        android:src="@drawable/size" />
+                    <TextView
+                        android:id="@+id/text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Size"
+                        android:textColor="#000"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+                    <ImageView
+                        android:id="@+id/image_quantity"
+                        android:layout_marginTop="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:src="@drawable/quantity" />
+                    <TextView
+                        android:id="@+id/text_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="wrap_content"
+                        android:text="Quantity"
+                        android:textColor="#000"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout_add_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+                    <ImageView
+                        android:id="@+id/image_cart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/addcart"
+                        android:background="@null"/>
+                    <TextView
+                        android:id="@+id/text_cart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add to Cart"
+                        android:textColor="#000"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView><!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/layout/activity_individual_item_info.xml -->

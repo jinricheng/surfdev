@@ -342,6 +342,7 @@ private void toFirstPage() throws IOException, XmlPullParserException {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
         if (requestCode == REQUEST_CODE_PAYMENT) {
             if (resultCode == Activity.RESULT_OK) {
                 PaymentConfirmation confirm =

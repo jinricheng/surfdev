@@ -22,21 +22,21 @@ import myaplication.tfg.org.myapplication.DataHolder;
  * Created by jin on 2015/4/30.
  */
 public  class Product implements Serializable{
-    private List<ProductConfigurable> listConfigurable;
     private SoapSerializationEnvelope env;
     private HttpTransportSE androidHttpTransport;
     private SoapObject request;
     private SoapObject r;
     private List<SoapObject> listAllItems;
     private String sessionId;
-    private ProductConfigurable p_configurable;
+
     private ProductSimple pp_simple;
     private List<ProductConfigurable> productConfigurables;
+
     String NAMESPACE = "urn:Magento";
     String URL = "http://gonegocio.es/index.php/api/v2_soap/";
-    private int addItemsNumber = 5;
+
+    private int addItemsNumber = 4;
     private int count =0;
-    private int allitems =0;
     private String section="";
 
     public Product() {
@@ -44,7 +44,7 @@ public  class Product implements Serializable{
     }
 
     private void initialVariable(){
-        listConfigurable = new ArrayList<>();
+       productConfigurables = new ArrayList<>();
         sessionId = "";
         listAllItems = new ArrayList<>();
         pp_simple = new ProductSimple();
@@ -55,14 +55,18 @@ public  class Product implements Serializable{
         env.dotNet = false;
         env.xsd = SoapSerializationEnvelope.XSD;
         env.enc = SoapSerializationEnvelope.ENC;
+
+
         request = new SoapObject(NAMESPACE, "login");
         request.addProperty("username", "jin");
         request.addProperty("apiKey", "1234567890");
         env.setOutputSoapObject(request);
         androidHttpTransport = new HttpTransportSE(URL);
         androidHttpTransport.call("", env);
+
         Object result = env.getResponse();
         sessionId = (String)result;
+        System.out.println("My session ID:  " + sessionId);
     }
 
     public void getAllListItem() throws IOException, XmlPullParserException {
@@ -74,73 +78,61 @@ public  class Product implements Serializable{
         Log.d("Products Gotten", r.toString());
         SoapObject child = (SoapObject) r.getProperty(0);
         String type = (String)child.getProperty("type");
-        if((type.equals("configurable"))){
-            startWithConfigurable();
-        }
-        else{
-            startWithSimple();
-        }
+       createAllListItems();
     }
-    private void startWithSimple() throws IOException, XmlPullParserException {
+    private void createAllListItems() throws IOException, XmlPullParserException {
         if(section.equals("News")){
             int i = r.getPropertyCount()-1;
             while(i>=0){
-                System.out.println(r.getProperty(i).toString());
+                SoapObject child =(SoapObject) r.getProperty(i);
+                String type =(String) child.getProperty("type");
+                if(type.equals("configurable")){
                 listAllItems.add((SoapObject)r.getProperty(i));
+                }
                 i--;
             }
         }else {
             for (int i = 0; i < r.getPropertyCount(); i++) {
                 SoapObject child = (SoapObject) r.getProperty(i);
+                String type =(String) child.getProperty("type");
+                if(type.equals("configurable")){
                 listAllItems.add(child);
-            }
-        }
-    }
-
-    private void startWithConfigurable() throws IOException, XmlPullParserException {
-        String temp = new String();
-        List<String> simpleProductId = new ArrayList<>();
-        for (int i = 0; i < r.getPropertyCount(); i++) {
-            SoapObject child = (SoapObject) r.getProperty(i);
-            String name =(String)child.getProperty("name");
-            String type = (String)child.getProperty("type");
-            if(!name.equals(temp) && type.equals("configurable")){
-                p_configurable = createConfigurableProduct(child);
-                productConfigurables.add(p_configurable);
-                temp = name;
-            }
-            else{
-                p_configurable.addSimpleProductId((String) child.getProperty("product_id"));
+                }
             }
         }
     }
 
     public void createPartOfItems() throws IOException, XmlPullParserException {
-        String temp = new String();
         List<String> simpleProductId = new ArrayList<>();
         productConfigurables = new ArrayList<>();
         int tempCount = count+addItemsNumber;
-        while(count<tempCount && allitems<listAllItems.size()) {
-            SoapObject child = listAllItems.get(allitems);
-            String name = (String) child.getProperty("name");
-            String type = (String) child.getProperty("type");
-            if (!name.equals(temp) && type.equals("configurable")) {
-                p_configurable = createConfigurableProduct(child);
-                p_configurable.addSimpleProductListId(simpleProductId);
-                p_configurable.setSection(section);
-                productConfigurables.add(p_configurable);
-                temp = name;
-                simpleProductId = new ArrayList<>();
-                count = count+1;
-            } else {
-                simpleProductId.add((String) child.getProperty("product_id"));
-            }
-
-            allitems++;
+        while(count<tempCount && count<listAllItems.size()) {
+            List<String> simpleId = new ArrayList<>();
+            SoapObject child = listAllItems.get(count);
+            ProductConfigurable p = createConfigurableProduct(child);
+            simpleId = relatedProducts(Integer.valueOf(child.getProperty("product_id").toString()));
+            p.addSimpleProductListId(simpleId);
+            productConfigurables.add(p);
+            count++;
         }
-//        checkSection(section);
         getIndividualProductInfo();
 
+    }
+
+    private List<String> relatedProducts(int productId) throws IOException, XmlPullParserException {
+        List<String> id = new ArrayList<>();
+        request = new SoapObject(NAMESPACE, "catalogProductLinkList");
+        request.addProperty("sessionId", sessionId);
+        request.addProperty("type", "up_sell");
+        request.addProperty("product", String.valueOf(productId));
+        env.setOutputSoapObject(request);
+        androidHttpTransport.call("", env);
+        r = (SoapObject) env.getResponse();
+        for(int i =0;i<r.getPropertyCount();i++){
+            SoapObject child =(SoapObject) r.getProperty(i);
+            id.add(child.getProperty("product_id").toString());
+        }
+        return id;
     }
 
     private void checkSection(String section) {
@@ -242,12 +234,7 @@ public  class Product implements Serializable{
         SoapObject child = (SoapObject) r.getProperty(0);
             System.out.println(r.toString());
         String type = (String)child.getProperty("type");
-            if((type.equals("configurable"))){
-                startWithConfigurable();
-             }
-            else{
-                startWithSimple();
-             }
+            createAllListItems();
             found = true;
             return found;
         }
@@ -264,9 +251,6 @@ public  class Product implements Serializable{
     }
     public int getCount(){return this.count; }
     public void setCount(int count){this.count = count; }
-    public int getAllItemsNumber(){return this.allitems;}
-    public void setAllItemsNumber(int allitems){this.allitems = allitems;}
-
     public int getAddItemsNumber(){return this.addItemsNumber;}
     public void setAddItemsNumber(int addItemsNumber){this.addItemsNumber = addItemsNumber;}
 

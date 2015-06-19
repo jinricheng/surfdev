@@ -127,7 +127,7 @@ public class SearchInfo extends ActionBarActivity implements AbsListView.OnScrol
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         if (isPageDiv && scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
-            if(productApiMethod.getAllItemsNumber()<productApiMethod.getAllListItemsSize()){
+            if(productApiMethod.getCount()<productApiMethod.getAllListItemsSize()){
                 new search().execute();}
 
         }

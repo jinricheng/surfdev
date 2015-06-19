@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class ProductConfigurable  implements Serializable{
    private String type;
-    private HashMap<String,ProductSimple> productsSimple;
+
     private List<String> simpleProductId;
     private String section;
     private String product_id;
@@ -20,9 +20,8 @@ public class ProductConfigurable  implements Serializable{
     private String price;
     private String description;
     private String size;
-
+    private String specialPrice="0,00";
     public ProductConfigurable(){
-        productsSimple = new HashMap<String,ProductSimple>();
         simpleProductId = new ArrayList<String>();
     }
     public ProductConfigurable(String product_id,String image, String title, String price, String description, String size){
@@ -86,9 +85,6 @@ public class ProductConfigurable  implements Serializable{
         return this.type;
     }
 
-    public void addNewSimpleProduct(ProductSimple p){
-        productsSimple.put(p.getProduct_id(),p);
-    }
 
 
     public void addSimpleProductId(String ids){
@@ -100,16 +96,6 @@ public class ProductConfigurable  implements Serializable{
 
     public List<String> getSimpleProductId(){
         return simpleProductId;
-    }
-     public ProductSimple getSimpleProduct(String product_id){
-         return productsSimple.get(product_id);
-     }
-
-    public void setListProductSimple(HashMap<String,ProductSimple> simple_product){
-        this.productsSimple=simple_product;
-    }
-    public HashMap<String,ProductSimple> getListProductSimple(){
-        return this.productsSimple;
     }
 
     public void setSection(String section){

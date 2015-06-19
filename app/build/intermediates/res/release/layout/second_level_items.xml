@@ -1,0 +1,14 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#FFF"
+    android:textSize="20sp"
+    android:gravity="start"
+    android:paddingRight="8dp"
+    android:minHeight="30sp"
+    android:textStyle="italic"
+    android:background="@drawable/selector"
+    >
+
+</TextView><!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/layout/second_level_items.xml -->

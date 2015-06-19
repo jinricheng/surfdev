@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        android:id="@+id/special_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:padding="8dp"
+        android:textSize="37dp"
+        android:textColor="#FF4000"
+        android:textStyle="bold|italic"
+        android:layout_alignParentTop="true"
+        />
+
+
+    <TextView
+        android:id="@+id/error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:textSize="40dp"
+        android:textColor="#000"
+        />
+    <ListView
+        android:id="@+id/top_seller_list"
+        android:layout_below="@+id/special_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_row_selector"
+        android:choiceMode="singleChoice" />
+
+
+
+</RelativeLayout>
+<!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/layout/activity_special_section.xml -->

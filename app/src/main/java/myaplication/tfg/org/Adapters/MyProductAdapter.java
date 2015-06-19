@@ -9,8 +9,10 @@ import android.widget.TextView;
 
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import myaplication.tfg.org.ApiMethod.Product;
 import myaplication.tfg.org.models.ProductConfigurable;
 import myaplication.tfg.org.myapplication.R;
 
@@ -19,7 +21,7 @@ import myaplication.tfg.org.myapplication.R;
  */
 public class MyProductAdapter extends BaseAdapter {
     Context context;
-    private List<ProductConfigurable> productConfigurables;
+    private List<ProductConfigurable> productConfigurables = new ArrayList<ProductConfigurable>();
     private int resource;
 
     @SuppressWarnings("static-access")

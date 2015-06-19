@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="myaplication.tfg.org.myapplication.CategorySection"
+    android:background="@drawable/background">
+
+
+    <TextView
+        android:id="@+id/sectionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:textSize="33dp"
+        android:textColor="#FF4000"
+        android:textStyle="bold|italic"
+        android:layout_alignParentTop="true"
+        />
+    <ListView
+        android:id="@+id/category_section_result"
+        android:layout_below="@+id/sectionTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_row_selector"
+        android:choiceMode="singleChoice" />
+
+</RelativeLayout>
+<!-- From: file:/D:/TFGAplication/tfg/app/src/main/res/layout/activity_category_section.xml -->
