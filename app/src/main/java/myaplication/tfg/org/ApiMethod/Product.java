@@ -95,10 +95,12 @@ public  class Product implements Serializable{
             for (int i = 0; i < r.getPropertyCount(); i++) {
                 SoapObject child = (SoapObject) r.getProperty(i);
                 String type =(String) child.getProperty("type");
-                if(type.equals("configurable")){
-                listAllItems.add(child);
+                    if(type.equals("configurable")){
+                        listAllItems.add(child);
+                    }
                 }
-            }
+
+
         }
     }
 
@@ -167,19 +169,28 @@ public  class Product implements Serializable{
 
 
     private void getMoreProductInfoFromServer(int position,ProductConfigurable p) throws IOException, XmlPullParserException {
+        Double price;
         request = new SoapObject(NAMESPACE, "catalogProductInfo");
         request.addProperty("sessionId", sessionId);
         request.addProperty("productId", p.getProduct_id());
         env.setOutputSoapObject(request);
         androidHttpTransport.call("", env);
         r = (SoapObject) env.getResponse();
-        Double price = Double.parseDouble((String) r.getProperty("price"));
-        String pr = String.format("%.2f", price);
-        p.setTitle((String)r.getProperty("name"));
-        p.setPrice(pr);
+
+        p.setTitle((String) r.getProperty("name"));
         p.setDescription((String) r.getProperty("description"));
         p.setSection(section);
-
+        if(r.hasProperty("special_price") && p.getSection().equals("Offers")){
+            p.setSpecialPrice((String)r.getProperty("special_price"));
+            price = Double.parseDouble((String) r.getProperty("special_price"));
+            System.out.println("ok specialprice "+r.toString());
+        }
+        else{
+            price = Double.parseDouble((String) r.getProperty("price"));
+            System.out.println("no special price"+r.toString());
+        }
+        String pr = String.format("%.2f", price);
+        p.setPrice(pr);
         productConfigurables.set(position,p);
         DataHolder.getListProductConfigurable().put(p.getProduct_id(), p);
 
@@ -236,6 +247,7 @@ public  class Product implements Serializable{
         String type = (String)child.getProperty("type");
             createAllListItems();
             found = true;
+            section="no";
             return found;
         }
         else{

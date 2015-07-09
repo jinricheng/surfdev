@@ -442,7 +442,8 @@ public class IndividualItemInfo extends ActionBarActivity {
         switch (i) {
             case 1:
                 v.getLocationOnScreen(location);
-                popSize.showAtLocation(v, Gravity.NO_GRAVITY, location[0], location[1] - popSize.getHeight());
+                popSize.showAtLocation(v, Gravity.NO_GRAVITY,
+                                            location[0], location[1] - popSize.getHeight());
                 layoutSize.setEnabled(true);
                 break;
             case 2:
@@ -587,17 +588,18 @@ public class IndividualItemInfo extends ActionBarActivity {
         int id = 0;
         RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         params.setMargins(margin, margin, margin, margin);
-        for (int i =0; i<spinnerinfo.length;i++){
+        List<String> allsize =new  ArrayList<>(sizeAndProduct.keySet());
+        for (int i =0; i<allsize.size();i++){
             RadioButton tempButton = new RadioButton(this);
-            tempButton.setText(spinnerinfo[i]);
-            tempButton.setTextSize(20);
-            tempButton.setId(i);
-            tempButton.setTag(i);
 
-            if(!sizeAndProduct.containsKey(spinnerinfo[i])){
-                tempButton.setEnabled(false);
-            }
-            radioGroup.addView(tempButton,params);
+                System.out.println("size registered  "+spinnerinfo[i]);
+                tempButton.setText(allsize.get(i));
+                tempButton.setTextSize(20);
+                tempButton.setId(i);
+                tempButton.setTag(i);
+
+                radioGroup.addView(tempButton,params);
+
 
         }
         if(radioButton !=null){

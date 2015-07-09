@@ -317,6 +317,7 @@
     <string name="buttonMesage">ENTRAR</string>
     <string name="copyRight">CopyRight 2015 surfdevils.com</string>
     <string name="country">Your Country</string>
+    <string name="customerInfo">Customer Info</string>
     <string name="description">Description:</string>
     <!-- From: file:/D:/TFGAplication/tfg/app/build/intermediates/exploded-aar/cn.pedant.sweetalert/library/1.2/res/values/values.xml -->
     <eat-comment/>

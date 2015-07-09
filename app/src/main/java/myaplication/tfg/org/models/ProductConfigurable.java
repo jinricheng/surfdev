@@ -105,6 +105,16 @@ public class ProductConfigurable  implements Serializable{
     public String getSection(){
         return this.section;
     }
-
+    public boolean hasSpecialPrice(){
+        if(!specialPrice.equals("0,00")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public void setSpecialPrice(String specialPrice){
+        this.specialPrice = specialPrice;
+    }
     public String toString () { return "Product: "+this.getProduct_id()+" "+this.getPrice()+" " +this.getDescription();}
 }

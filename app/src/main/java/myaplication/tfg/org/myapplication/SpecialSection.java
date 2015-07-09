@@ -120,13 +120,11 @@ public class SpecialSection extends ActionBarActivity implements AbsListView.OnS
             super.onPostExecute(result);
 
             Log.d("Hi", "Done Downloading.");
-            System.out.println("we have product at this moment "+product.getCount()+" show available one time"+ product.getAddItemsNumber());
             if(product.getCount() <= product.getAddItemsNumber()){
-                System.out.println("size"+product.getProductConfigurables().size());
                 createItemList(product.getProductConfigurables());}
             else {
                 if(adapter1 == null){
-                   createItemList(product.getProductConfigurables());
+                     createItemList(product.getProductConfigurables());
                     TextView error = (TextView)findViewById(R.id.error_message);
                     error.setText("We have problem with connection,try again please");
                 }
@@ -142,8 +140,8 @@ public class SpecialSection extends ActionBarActivity implements AbsListView.OnS
 
     private void createItemList(List<ProductConfigurable> productConfigurables){
         ListView list = (ListView)findViewById(R.id.top_seller_list);
-        adapter1 = new MyProductAdapter(this, productConfigurables,R.layout.topseller_list);
-        // moreView =getLayoutInflater().inflate(R.layout.listview_footer, null);
+        adapter1 = new MyProductAdapter(this, productConfigurables,
+                                                R.layout.topseller_list);
         list.setAdapter(adapter1);
         list.setOnItemClickListener(new productDetailClickListener());
         list.setOnScrollListener(this);

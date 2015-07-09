@@ -72,9 +72,9 @@ public final class R {
 	}
 	public static final class string {
 		public static final int app_name = 0x7f0c0013;
-		public static final int dialog_cancel = 0x7f0c0018;
-		public static final int dialog_default_title = 0x7f0c0019;
-		public static final int dialog_ok = 0x7f0c001a;
+		public static final int dialog_cancel = 0x7f0c0019;
+		public static final int dialog_default_title = 0x7f0c001a;
+		public static final int dialog_ok = 0x7f0c001b;
 	}
 	public static final class style {
 		public static final int alert_dialog = 0x7f0d00f0;

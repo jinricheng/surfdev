@@ -129,6 +129,7 @@ public class Category {
             }
             else{
                 ProductConfigurable item = DataHolder.getListProductConfigurable().get(p.getProduct_id());
+                item.setSection("no");
                 listProductConfigurables.set(i, item);
             }
         }
@@ -146,6 +147,7 @@ public class Category {
         p.setTitle((String)r.getProperty("name"));
         p.setPrice(pr);
         p.setDescription((String) r.getProperty("description"));
+        p.setSection("no");
         listProductConfigurables.set(position, p);
         DataHolder.getListProductConfigurable().put(p.getProduct_id(), p);
     }

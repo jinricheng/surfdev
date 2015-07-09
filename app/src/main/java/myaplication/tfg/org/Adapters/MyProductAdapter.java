@@ -1,6 +1,7 @@
 package myaplication.tfg.org.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -88,15 +89,14 @@ public class MyProductAdapter extends BaseAdapter {
 
         if(p != null){
             if(p.getSection()!=null){
-                if(p.getSection().equals("Offers")) {
-                viewHolder.especial.setImageResource(R.drawable.oferta_icon);
-                }
-                else if(p.getSection().equals("News")){
+                if(p.getSection().equals("News")){
                     viewHolder.especial.setImageResource(R.drawable.new_icon);
                  }
+                else if(p.getSection().equals("Top_Sellers")){
+                 viewHolder.especial.setImageResource(R.drawable.hot_icon);
+                }
                 else{
-                    viewHolder.especial.setImageResource(R.drawable.hot_icon);
-                    viewHolder.quantity.setText("Sold:"+"3");
+                    viewHolder.especial.setVisibility(View.GONE);
                 }
             }
 
@@ -104,7 +104,10 @@ public class MyProductAdapter extends BaseAdapter {
         UrlImageViewHelper.setUrlDrawable(viewHolder.image, p.getImage());
        // image.setImageResource(R.drawable.jacket);
         viewHolder.icon.setImageResource(R.drawable.ic_action_next_item_dark);
-        viewHolder.price.setText(p.getPrice()+"\u20AC");
+        if(p.hasSpecialPrice()) {
+            viewHolder.price.setTextColor(Color.RED);
+        }
+            viewHolder.price.setText(p.getPrice() + "\u20AC");
         }
 
         return convertView;
